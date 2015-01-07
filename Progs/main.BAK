@@ -67,7 +67,7 @@ _SCREEN.ICON =LOCFILE("camion_16_mary.ico")
 
 &&Validando Servidor
 lcTexto = ""
-IF !FILE("Config.txt")
+IF FILE("Config.txt")
 	lcEject="Import From " + CHR(34) + pcRuta + "Config.txt" + CHR(34) +" Type Xls"
 	&lcEject
 	GO BOTTOM
