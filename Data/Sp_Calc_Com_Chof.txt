@@ -1,0 +1,57 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Sp_Calc_Com_Chof`(tcid_periodo varchar(10),tnid_sucursal int(4))
+Cancel: BEGIN
+   Declare nError Int(10);
+   Declare ldfecha_desde,ldfecha_hasta date;
+   Declare lcid_periodo VARCHAR(10);
+   DECLARE finished INTEGER DEFAULT 0;
+   DECLARE ttperiodo CURSOR FOR SELECT cid_periodo,dfecha_desde,dfecha_hasta FROM tperiodo where cid_periodo = tcid_periodo and nstatus = 0;
+   OPEN ttperiodo;
+   FETCH ttperiodo INTO lcid_periodo,ldfecha_desde,ldfecha_hasta;
+   close ttperiodo;
+   Create Temporary Table ttRelac (nid_relacion Int(10));
+
+   Start Transaction;
+
+      if not exists(select * from tconfig where ifnull(ccompania,'')<>'') then
+         ROLLBACK;
+         LEAVE Cancel;
+      end if;
+
+      if not exists(select cid_periodo,dfecha_desde,dfecha_hasta from tperiodo where cid_periodo = tcid_periodo and nstatus = 0) then
+         ROLLBACK;
+         LEAVE Cancel;
+      end if;
+
+
+      insert into tcomision_choferes (nid_viaje,nporc_com,ntabulador,cid_periodo)
+         select nid_viaje,nporc_com_r,CASE ctipo_vehic WHEN '1' THEN ncom_liv WHEN '2' THEN ncom_med WHEN '3' THEN ncom_pes END as ntabulador,(select tcid_periodo) as cid_periodo_r
+            from vw_viajes
+            where ((nstatus_r = 1 and (dfecha_r between ldfecha_desde and ldfecha_hasta)))
+            AND ncontratado = 0 AND nactivo_c = 1
+            AND npropio = 1 AND nactivo_v = 1 and nactivo_s = 1
+            AND nid_sucursal = tnid_sucursal
+            group by nid_viaje
+            having count(nid_relacion)=min(count_viaje)
+            order by nid_viaje;
+
+      insert into ttRelac
+         select distinct nid_relacion
+            from vw_viajes
+            where ((nstatus_r = 1 and (dfecha_r between ldfecha_desde and ldfecha_hasta)))
+            AND ncontratado = 0 AND nactivo_c = 1
+            AND npropio = 1 AND nactivo_v = 1 and nactivo_s = 1
+            AND nid_sucursal = tnid_sucursal
+            group by nid_viaje
+            having count(nid_relacion)=min(count_viaje)
+            order by nid_relacion;
+
+      update trelacion set nstatus = 2 where nid_relacion in (select nid_relacion from ttRelac);
+
+
+   Set nError =(Select @Error);
+   if(nError>0) then
+      ROLLBACK;
+   else
+      COMMIT;
+   end if;
+END

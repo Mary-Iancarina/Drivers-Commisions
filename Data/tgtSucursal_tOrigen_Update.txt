@@ -1,0 +1,6 @@
+Delimiter|
+Create Trigger tgtSucursal_tOrigen_Update Before Update On tSucursal
+For Each Row Begin
+  update torigen_destino set cDescripcion = New.cDescripcion,cId_Ciudad = New.cId_Ciudad,cId_Usuario = New.cId_Usuario, nactivo = new.nactivo where nid_origdest = new.nid_origdest;
+End
+|Delimiter;

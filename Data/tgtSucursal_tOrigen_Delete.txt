@@ -1,0 +1,10 @@
+show triggers from bdtransporte;
+drop trigger tgtSucursal_tOrigen_Insert;
+
+
+Delimiter|
+Create Trigger tgtSucursal_tOrigen_Delete Before Delete On tSucursal
+For Each Row Begin
+  update torigen_destino set cId_Usuario = New.cId_Usuario, nactivo = 0 where nid_origdest = new.nid_origdest;
+End
+|Delimiter;

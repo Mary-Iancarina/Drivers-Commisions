@@ -1,0 +1,549 @@
+TABLE_CATALOG,TABLE_SCHEMA,TABLE_NAME,COLUMN_NAME,ORDINAL_POSITION,COLUMN_DEFAULT,IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,CHARACTER_OCTET_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,CHARACTER_SET_NAME,COLLATION_NAME,COLUMN_TYPE,COLUMN_KEY,EXTRA,PRIVILEGES,COLUMN_COMMENT
+NULL,bdtransporte,tacceso_suc,cid_usuario,1," ",NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),PRI,,"select,insert,update,references",
+NULL,bdtransporte,tacceso_suc,crutaspc,2," ",NO,varchar,250,250,NULL,NULL,latin1,latin1_swedish_ci,varchar(250),,,"select,insert,update,references",
+NULL,bdtransporte,tacceso_suc,nid_sucursal,3,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",PRI,,"select,insert,update,references",
+NULL,bdtransporte,talmacenista,cid_almacenista,1,NULL,NO,varchar,9,9,NULL,NULL,latin1,latin1_swedish_ci,varchar(9),PRI,,"select,insert,update,references",
+NULL,bdtransporte,talmacenista,cnombre,2," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,talmacenista,cficha_nom,3,0,NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,talmacenista,nid_sucursal,4,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",MUL,,"select,insert,update,references",
+NULL,bdtransporte,talmacenista,nactivo,5,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,talmacenista,cid_usuario,6," ",NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,talmacenista,dfecha_act,7,CURRENT_TIMESTAMP,NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,"on update CURRENT_TIMESTAMP","select,insert,update,references",
+NULL,bdtransporte,talmacenista,nmontacarguista,8,0,YES,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tanticip_tviaje,nid_anticipo,1,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",PRI,,"select,insert,update,references",
+NULL,bdtransporte,tanticip_tviaje,nid_viaje,2,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",PRI,,"select,insert,update,references",
+NULL,bdtransporte,tanticipo,nid_anticipo,1,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",PRI,,"select,insert,update,references",
+NULL,bdtransporte,tanticipo,cnro_recibo,2," ",NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),MUL,,"select,insert,update,references",
+NULL,bdtransporte,tanticipo,nmonto,3,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,tanticipo,cid_usuario,4," ",NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,tanticipo,dfecha_act,5,CURRENT_TIMESTAMP,NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,"on update CURRENT_TIMESTAMP","select,insert,update,references",
+NULL,bdtransporte,tanticipo,cobservacion,6,NULL,YES,text,65535,65535,NULL,NULL,latin1,latin1_swedish_ci,text,,,"select,insert,update,references",
+NULL,bdtransporte,tanticipo,dfecha,7,1900-01-01,NO,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,tanticipo,nstatus,8,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Normal,  2:Procesado,  3:Anulado"
+NULL,bdtransporte,tanticipo,nid_relacion,9,NULL,YES,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",MUL,,"select,insert,update,references",
+NULL,bdtransporte,tanticipo,nrelacionado,10,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tanticipo,nid_sucursal,11,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tanticipo,nid_anticipo_ant,12,NULL,YES,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",,,"select,insert,update,references","Guarda el número de anticipo al cual se está reemplazando."
+NULL,bdtransporte,tanticipo,ncomplemento,13,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Indica que el anticipo es un complemento, 0: No lo es."
+NULL,bdtransporte,tbitacora,nid_bitacora,1,NULL,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",PRI,auto_increment,"select,insert,update,references",
+NULL,bdtransporte,tbitacora,ctabla,2,NULL,NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,tbitacora,coperacion,3,,NO,varchar,1,1,NULL,NULL,latin1,latin1_swedish_ci,varchar(1),,,"select,insert,update,references","I:Insert   U:Update   D:Delete
+"
+NULL,bdtransporte,tbitacora,cid_usuario,4,NULL,NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,tbitacora,dfecha,5,NULL,NO,datetime,NULL,NULL,NULL,NULL,NULL,NULL,datetime,,,"select,insert,update,references",
+NULL,bdtransporte,tbitacora,cregistro,6,NULL,NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,tchofer,cid_chofer,1,NULL,NO,varchar,9,9,NULL,NULL,latin1,latin1_swedish_ci,varchar(9),PRI,,"select,insert,update,references",
+NULL,bdtransporte,tchofer,cnombre,2,,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,tchofer,ccontraparte,3," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,tchofer,cficha_nom,4," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,tchofer,nid_sucursal,5,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",PRI,,"select,insert,update,references",
+NULL,bdtransporte,tchofer,cid_usuario,6,NULL,NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,tchofer,dfecha_act,7,CURRENT_TIMESTAMP,NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,"on update CURRENT_TIMESTAMP","select,insert,update,references",
+NULL,bdtransporte,tchofer,ncontratado,8,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tchofer,nactivo,9,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tciudad,cid_ciudad,1,,NO,varchar,4,4,NULL,NULL,latin1,latin1_swedish_ci,varchar(4),PRI,,"select,insert,update,references",
+NULL,bdtransporte,tciudad,cdescripcion,2,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,tciudad,cid_estado,3,NULL,NO,varchar,2,2,NULL,NULL,latin1,latin1_swedish_ci,varchar(2),MUL,,"select,insert,update,references",
+NULL,bdtransporte,tciudad,cid_usuario,4,NULL,NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,tciudad,dfecha_act,5,CURRENT_TIMESTAMP,NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,"on update CURRENT_TIMESTAMP","select,insert,update,references",
+NULL,bdtransporte,tcomision_choferes,nid_viaje,1,NULL,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",PRI,,"select,insert,update,references",
+NULL,bdtransporte,tcomision_choferes,cid_periodo,2,NULL,NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),PRI,,"select,insert,update,references",
+NULL,bdtransporte,tcomision_choferes,nporc_com,3,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(3) unsigned",,,"select,insert,update,references","% de comisión de la ruta."
+NULL,bdtransporte,tcomision_choferes,ntabulador,4,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","tabulador de viaje para el tipo de vehículo en la ruta."
+NULL,bdtransporte,tconfig,ccompania,1," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references","Código de la compañia en el sistema de nómina (SPI). Actualmente 01"
+NULL,bdtransporte,tconfig,nbono_base,2,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Bono base para efectuar el cálculo de las comisiones de jefe de almacen y montacarguista."
+NULL,bdtransporte,tconfig,ndias,3,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(2) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tconfig,npeso_min_liv1,4,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Peso minimo que se reconoce a ls vehiculos livianos para efectos del calculo de comisiones del chofer."
+NULL,bdtransporte,tconfig,npeso_min_med1,5,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Peso minimo que se reconoce a ls vehiculos medianos para efectos del calculo de comisiones del chofer."
+NULL,bdtransporte,tconfig,npeso_min_pes1,6,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Peso minimo que se reconoce a ls vehiculos pesados para efectos del calculo de comisiones del chofer."
+NULL,bdtransporte,tcorrelativo,nid_sucursal,1,0000,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned zerofill",,,"select,insert,update,references",
+NULL,bdtransporte,tcorrelativo,nid_anticipo,2,0000000000,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned zerofill",,,"select,insert,update,references",
+NULL,bdtransporte,tcorrelativo,nid_viaje,3,0000000000,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned zerofill",,,"select,insert,update,references",
+NULL,bdtransporte,tcorrelativo,nid_relacion,4,0000000000,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned zerofill",,,"select,insert,update,references",
+NULL,bdtransporte,tcorrelativo,nid_gasto,5,0000000000,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned zerofill",,,"select,insert,update,references",
+NULL,bdtransporte,tdetalle_gasto,nid_gasto,1,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",MUL,,"select,insert,update,references",
+NULL,bdtransporte,tdetalle_gasto,cid_vehiculo,2,NULL,NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),MUL,,"select,insert,update,references",
+NULL,bdtransporte,tdetalle_gasto,cid_servicio,3,NULL,NO,varchar,3,3,NULL,NULL,latin1,latin1_swedish_ci,varchar(3),MUL,,"select,insert,update,references",
+NULL,bdtransporte,tdetalle_gasto,ntotal,4,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,tdetalle_gasto,nid_sucursal_v,5,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tdetalle_relacion,nid_relacion,1,NULL,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",MUL,,"select,insert,update,references",
+NULL,bdtransporte,tdetalle_relacion,cid_tipogasto,2,NULL,NO,varchar,2,2,NULL,NULL,latin1,latin1_swedish_ci,varchar(2),MUL,,"select,insert,update,references",
+NULL,bdtransporte,tdetalle_relacion,nmonto,3,NULL,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,testado,cid_estado,1,NULL,NO,varchar,2,2,NULL,NULL,latin1,latin1_swedish_ci,varchar(2),PRI,,"select,insert,update,references",
+NULL,bdtransporte,testado,cdescripcion,2,,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,testado,cid_usuario,3,NULL,NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,testado,dfecha_act,4,CURRENT_TIMESTAMP,NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,"on update CURRENT_TIMESTAMP","select,insert,update,references",
+NULL,bdtransporte,tgasto_serv,nid_gasto,1,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",PRI,,"select,insert,update,references",
+NULL,bdtransporte,tgasto_serv,dfecha,2,NULL,NO,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,tgasto_serv,cfactura,3," ",NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,tgasto_serv,ntotal,4,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,tgasto_serv,crif_emp,5," ",YES,varchar,12,12,NULL,NULL,latin1,latin1_swedish_ci,varchar(12),,,"select,insert,update,references",
+NULL,bdtransporte,tgasto_serv,cnombre_emp,6," ",YES,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,tgasto_serv,cid_usuario,7,NULL,NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,tgasto_serv,dfecha_act,8,CURRENT_TIMESTAMP,NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,"on update CURRENT_TIMESTAMP","select,insert,update,references",
+NULL,bdtransporte,tgasto_serv,cobservacion,9,NULL,YES,text,65535,65535,NULL,NULL,latin1,latin1_swedish_ci,text,,,"select,insert,update,references",
+NULL,bdtransporte,tgasto_serv,nstatus,10,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1:Normal, 2:Contabilizado"
+NULL,bdtransporte,tgrupo_servicio,cid_grupo,1,NULL,NO,varchar,2,2,NULL,NULL,latin1,latin1_swedish_ci,varchar(2),PRI,,"select,insert,update,references",
+NULL,bdtransporte,tgrupo_servicio,cdescripcion,2,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,tgrupo_servicio,cid_usuario,3,NULL,NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,tgrupo_servicio,dfecha_act,4,CURRENT_TIMESTAMP,NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,"on update CURRENT_TIMESTAMP","select,insert,update,references",
+NULL,bdtransporte,tgrupo_servicio,ccta_cont,5,NULL,NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,torigen_destino,nid_origdest,1,NULL,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",PRI,auto_increment,"select,insert,update,references",
+NULL,bdtransporte,torigen_destino,cdescripcion,2,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,torigen_destino,cid_ciudad,3,NULL,NO,varchar,4,4,NULL,NULL,latin1,latin1_swedish_ci,varchar(4),MUL,,"select,insert,update,references",
+NULL,bdtransporte,torigen_destino,cid_usuario,4,NULL,NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,torigen_destino,dfecha_act,5,CURRENT_TIMESTAMP,NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,"on update CURRENT_TIMESTAMP","select,insert,update,references",
+NULL,bdtransporte,torigen_destino,nactivo,6,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,torigen_destino,norigen,7,NULL,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,torigen_destino,nsucursal,8,NULL,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tperiodo,cid_periodo,1,NULL,NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),PRI,,"select,insert,update,references",
+NULL,bdtransporte,tperiodo,dfecha_desde,2,NULL,NO,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,tperiodo,dfecha_hasta,3,NULL,NO,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,tperiodo,cdescripcion,4,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,tperiodo,cid_usuario,5,NULL,NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,tperiodo,dfecha_act,6,CURRENT_TIMESTAMP,NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,"on update CURRENT_TIMESTAMP","select,insert,update,references",
+NULL,bdtransporte,tperiodo,nstatus,7,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,tinyint(1),,,"select,insert,update,references",
+NULL,bdtransporte,tperiodo,nticket_cesta,8,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,tperiodo,ndias_feriados,9,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(2) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,trelacion,nid_relacion,1,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",PRI,,"select,insert,update,references",
+NULL,bdtransporte,trelacion,dfecha,2,1900-01-01,NO,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,trelacion,cid_usuario,3," ",NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,trelacion,dfecha_act,4,CURRENT_TIMESTAMP,NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,"on update CURRENT_TIMESTAMP","select,insert,update,references",
+NULL,bdtransporte,trelacion,cobservacion,5,NULL,YES,text,65535,65535,NULL,NULL,latin1,latin1_swedish_ci,text,,,"select,insert,update,references",
+NULL,bdtransporte,trelacion,nstatus,6,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Normal, 2: Contabilizado"
+NULL,bdtransporte,truta,nid_origen,1,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",PRI,,"select,insert,update,references",
+NULL,bdtransporte,truta,nid_destino,2,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",PRI,,"select,insert,update,references",
+NULL,bdtransporte,truta,ndistancia,3,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,truta,cid_usuario,4," ",NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,truta,dfecha_act,5,CURRENT_TIMESTAMP,NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,"on update CURRENT_TIMESTAMP","select,insert,update,references",
+NULL,bdtransporte,truta,cdescripcion,6," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,truta,nactivo,7,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,truta,nporc_com,8,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(3) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,truta,ncom_pes,9,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,truta,ncom_med,10,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,truta,ncom_liv,11,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,tservicio,cid_servicio,1,NULL,NO,varchar,3,3,NULL,NULL,latin1,latin1_swedish_ci,varchar(3),PRI,,"select,insert,update,references",
+NULL,bdtransporte,tservicio,cdescripcion,2,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,tservicio,cid_grupo,3,NULL,NO,varchar,2,2,NULL,NULL,latin1,latin1_swedish_ci,varchar(2),MUL,,"select,insert,update,references",
+NULL,bdtransporte,tservicio,cid_usuario,4,NULL,NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,tservicio,dfecha_act,5,CURRENT_TIMESTAMP,NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,"on update CURRENT_TIMESTAMP","select,insert,update,references",
+NULL,bdtransporte,tservicio,ccta_cont,6," ",NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,tservicio,cdescrip_cta,7," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,tservicio,ncontabiliza,8,1,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tsucursal,nid_sucursal,1,NULL,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",PRI,auto_increment,"select,insert,update,references",
+NULL,bdtransporte,tsucursal,cdescripcion,2,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,tsucursal,cid_ciudad,3,,NO,varchar,4,4,NULL,NULL,latin1,latin1_swedish_ci,varchar(4),,,"select,insert,update,references",
+NULL,bdtransporte,tsucursal,cid_usuario,4,NULL,NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,tsucursal,dfecha_act,5,CURRENT_TIMESTAMP,NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,"on update CURRENT_TIMESTAMP","select,insert,update,references",
+NULL,bdtransporte,tsucursal,ncap_carga,6,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,tsucursal,nid_origdest,7,0,YES,int,NULL,NULL,10,0,NULL,NULL,int(4),,,"select,insert,update,references",
+NULL,bdtransporte,tsucursal,nactivo,8,0,YES,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tsucursal,nbono_alm,9,0.0000,YES,double,NULL,NULL,7,4,NULL,NULL,"double(7,4)",,,"select,insert,update,references","Incentivo por carga total despachada en el mes para el jefe de almacen"
+NULL,bdtransporte,tsucursal,nbono_mon,10,0.0000,YES,double,NULL,NULL,7,4,NULL,NULL,"double(7,4)",,,"select,insert,update,references","Incentivo por carga total despachada en el mes para el montacarguista"
+NULL,bdtransporte,tsucursal,nporc_com,11,0,YES,int,NULL,NULL,10,0,NULL,NULL,"int(3) unsigned",,,"select,insert,update,references","Porcentaje de capacidad de carga a partir del cual se paga comisión al jefe de almacen y montacarguista"
+NULL,bdtransporte,tsucursal,cconcepto_com,12,,YES,varchar,4,4,NULL,NULL,latin1,latin1_swedish_ci,varchar(4),,,"select,insert,update,references","Código del concepto de las comisiones para los choferes.
+"
+NULL,bdtransporte,tsucursal,casignacion_com,13,NULL,YES,varchar,4,4,NULL,NULL,latin1,latin1_swedish_ci,varchar(4),,,"select,insert,update,references","Código del concepto de las asignaciones para los choferes."
+NULL,bdtransporte,tsucursal,cdeduccion_com,14,NULL,YES,varchar,4,4,NULL,NULL,latin1,latin1_swedish_ci,varchar(4),,,"select,insert,update,references","Código del concepto de las deducciones para los choferes."
+NULL,bdtransporte,tsucursal,npeso_min_liv,15,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Peso minimo que se reconoce a ls vehiculos livianos para efectos del calculo de comisiones del chofer."
+NULL,bdtransporte,tsucursal,npeso_min_med,16,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Peso minimo que se reconoce a ls vehiculos medianos para efectos del calculo de comisiones del chofer."
+NULL,bdtransporte,tsucursal,npeso_min_pes,17,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Peso minimo que se reconoce a ls vehiculos pesados para efectos del calculo de comisiones del chofer."
+NULL,bdtransporte,ttipo_gasto,cid_tipogasto,1,NULL,NO,varchar,2,2,NULL,NULL,latin1,latin1_swedish_ci,varchar(2),PRI,,"select,insert,update,references",
+NULL,bdtransporte,ttipo_gasto,cdescripcion,2," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,ttipo_gasto,cid_usuario,3," ",NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,ttipo_gasto,dfecha_act,4,CURRENT_TIMESTAMP,NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,"on update CURRENT_TIMESTAMP","select,insert,update,references",
+NULL,bdtransporte,ttipo_gasto,ccta_cont,5," ",NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,ttipo_gasto,cdescrip_cta,6,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,ttransporte_ext,crif,1," ",NO,varchar,15,15,NULL,NULL,latin1,latin1_swedish_ci,varchar(15),PRI,,"select,insert,update,references",
+NULL,bdtransporte,ttransporte_ext,cnombre,2," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,ttransporte_ext,nporc_ret,3,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Porcentaje de retencion de iva"
+NULL,bdtransporte,ttransporte_ext,nid_sucursal,4,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",PRI,,"select,insert,update,references",
+NULL,bdtransporte,ttransporte_ext,cid_usuario,5," ",NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,ttransporte_ext,dfecha_act,6,CURRENT_TIMESTAMP,NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,"on update CURRENT_TIMESTAMP","select,insert,update,references",
+NULL,bdtransporte,ttransporte_ext,nactivo,7,0,YES,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,cid_usuario,1,NULL,NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),PRI,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,cnombre,2,NULL,NO,varchar,45,45,NULL,NULL,latin1,latin1_swedish_ci,varchar(45),,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,cclave,3,0,NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nactivo,4,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmalmacenistas,5,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmanticipo_viaje,6,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmcargar_anticipo,7,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmcargar_viaje,8,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmcargar_viaje_ext,9,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmchoferes,10,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmciudades,11,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmestados,12,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmgasto_servicio,13,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmgrupos_serv,14,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmmontacarguistas,15,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmorigendestinos,16,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmperiodos,17,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmrelacion,18,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmrutas,19,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmservicios,20,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmsucursales,21,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmtipo_gastos,22,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmtransp_ext,23,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmusuarios,24,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmvehiculos,25,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nfrmviajes,26,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,ncerrar_periodos,27,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nmov_fperiodo,28,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tusuario,nanular,29,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","Anular documentos (Anticipos, Relaciones, Gastos por Servicio)"
+NULL,bdtransporte,tusuario,nrep_com,30,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","Reportes de comisiones"
+NULL,bdtransporte,tusuario,ncalc_com,31,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","Calcular comisiones"
+NULL,bdtransporte,tusuario,nconfig,32,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","Configuración del sistema"
+NULL,bdtransporte,tusuario,codbc_oracle,33,,YES,varchar,45,45,NULL,NULL,latin1,latin1_swedish_ci,varchar(45),,,"select,insert,update,references",
+NULL,bdtransporte,tvehiculo,cid_vehiculo,1,NULL,NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),PRI,,"select,insert,update,references",
+NULL,bdtransporte,tvehiculo,cdescripcion,2," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,tvehiculo,cmarca,3," ",YES,varchar,30,30,NULL,NULL,latin1,latin1_swedish_ci,varchar(30),,,"select,insert,update,references",
+NULL,bdtransporte,tvehiculo,cserial_motor,4," ",YES,varchar,30,30,NULL,NULL,latin1,latin1_swedish_ci,varchar(30),,,"select,insert,update,references",
+NULL,bdtransporte,tvehiculo,cserial_carroc,5," ",YES,varchar,30,30,NULL,NULL,latin1,latin1_swedish_ci,varchar(30),,,"select,insert,update,references",
+NULL,bdtransporte,tvehiculo,ntara,6,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Peso del vehículo vacio"
+NULL,bdtransporte,tvehiculo,ncapacidad,7,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Capacidad de carga del vehículo. (Peso neto de la carga)"
+NULL,bdtransporte,tvehiculo,ctipo_vehic,8,0,YES,int,NULL,NULL,10,0,NULL,NULL,"int(1) unsigned",,,"select,insert,update,references","1:Liviano (<13Ton),  2:Mediano (13Ton<=X<=25Ton),  3:Pesado(>25Ton)"
+NULL,bdtransporte,tvehiculo,ncosto,9,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,tvehiculo,cid_usuario,10," ",NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,tvehiculo,dfecha_act,11,CURRENT_TIMESTAMP,NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,"on update CURRENT_TIMESTAMP","select,insert,update,references",
+NULL,bdtransporte,tvehiculo,npropio,12,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tvehiculo,nactivo,13,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tvehiculo,nid_sucursal,14,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",PRI,,"select,insert,update,references",
+NULL,bdtransporte,tvehiculo,crif_empext,15," ",YES,varchar,15,15,NULL,NULL,latin1,latin1_swedish_ci,varchar(15),,,"select,insert,update,references","Empresa transportista, en caso de que el vehículo sea contratado"
+NULL,bdtransporte,tviaje,nid_viaje,1,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(14) unsigned",PRI,,"select,insert,update,references",
+NULL,bdtransporte,tviaje,cid_chofer,2,NULL,NO,varchar,9,9,NULL,NULL,latin1,latin1_swedish_ci,varchar(9),MUL,,"select,insert,update,references",
+NULL,bdtransporte,tviaje,cid_vehiculo,3,NULL,NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),MUL,,"select,insert,update,references",
+NULL,bdtransporte,tviaje,dfecha,4,NULL,YES,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,tviaje,cobservacion,5,NULL,YES,text,65535,65535,NULL,NULL,latin1,latin1_swedish_ci,text,,,"select,insert,update,references",
+NULL,bdtransporte,tviaje,cguia,6," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,tviaje,corden_carga,7," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),MUL,,"select,insert,update,references",
+NULL,bdtransporte,tviaje,dfecha_guia,8,1900-01-01,YES,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references","si el tipo de viaje es 1:interno, se guarda la fecha de la guia, si el tipo de viaje es 2:externo, se guarda la fecha de la factura."
+NULL,bdtransporte,tviaje,npeso_neto,9,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","si el tipo de viaje es 1:interno, se guarda el peso neto de la guia, si el tipo de viaje es 2:externo, se guarda el peso neto de la factura."
+NULL,bdtransporte,tviaje,cid_usuario,10,NULL,NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,tviaje,dfecha_act,11,CURRENT_TIMESTAMP,NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,"on update CURRENT_TIMESTAMP","select,insert,update,references",
+NULL,bdtransporte,tviaje,nid_origen,12,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",MUL,,"select,insert,update,references",
+NULL,bdtransporte,tviaje,nid_destino,13,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tviaje,cid_periodo,14," ",NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),MUL,,"select,insert,update,references",
+NULL,bdtransporte,tviaje,ntipo_viaje,15,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Internos de la empresa. 2: Viajes Externos, 3: Viajes Contratados
+"
+NULL,bdtransporte,tviaje,nid_sucursal_guia,16,0,YES,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,tviaje,ndistancia,17,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,tviaje,nstatus,18,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Normal,  2:Procesado,  3:Anulado"
+NULL,bdtransporte,tviaje,cfactura_ext,19,,YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),MUL,,"select,insert,update,references","Si el tipo de viaje es externo se guarda el numero de la factura de la mercancia transportada en el viaje externo"
+NULL,bdtransporte,tviaje,ccliente_ext,20," ",YES,varchar,45,45,NULL,NULL,latin1,latin1_swedish_ci,varchar(45),,,"select,insert,update,references","Si el tipo de viaje es externo se guarda el nombre del cliente de la factura correspondiente al viaje externo"
+NULL,bdtransporte,tviaje,nid_sucursal_c,21,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references","Sucursal a la que pertenece el chofer"
+NULL,bdtransporte,tviaje,nid_sucursal_v,22,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references","Sucursal a la que pertenece el vehiculo"
+NULL,bdtransporte,tviaje,npeso_com,23,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Peso a comisionar"
+NULL,bdtransporte,vw_anticipos,nid_anticipo,1,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,cnro_recibo,2," ",NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,nmonto,3,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,cid_usuario,4," ",NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,dfecha_act,5,"0000-00-00 00:00:00",NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,cobservacion,6,NULL,YES,text,65535,65535,NULL,NULL,latin1,latin1_swedish_ci,text,,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,dfecha,7,1900-01-01,NO,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,nstatus,8,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Normal,  2:Procesado,  3:Anulado"
+NULL,bdtransporte,vw_anticipos,nid_relacion,9,NULL,YES,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,nrelacionado,10,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,nid_sucursal,11,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,nid_anticipo_ant,12,NULL,YES,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",,,"select,insert,update,references","Guarda el número de anticipo al cual se está reemplazando."
+NULL,bdtransporte,vw_anticipos,nid_viaje,13,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(14) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,cid_chofer,14,NULL,NO,varchar,9,9,NULL,NULL,latin1,latin1_swedish_ci,varchar(9),,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,nid_sucursal_c,15,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references","Sucursal a la que pertenece el chofer"
+NULL,bdtransporte,vw_anticipos,cid_vehiculo,16,NULL,NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,nid_sucursal_v,17,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references","Sucursal a la que pertenece el vehiculo"
+NULL,bdtransporte,vw_anticipos,dfecha_v,18,NULL,YES,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,corden_carga,19," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,cguia,20," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,dfecha_guia,21,1900-01-01,YES,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references","si el tipo de viaje es 1:interno, se guarda la fecha de la guia, si el tipo de viaje es 2:externo, se guarda la fecha de la factura."
+NULL,bdtransporte,vw_anticipos,npeso_com,22,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Peso a comisionar"
+NULL,bdtransporte,vw_anticipos,nid_sucursal_guia,23,0,YES,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,cid_periodo,24," ",NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,nid_origen,25,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,nid_destino,26,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,ntipo_viaje,27,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Internos de la empresa. 2: Viajes Externos, 3: Viajes Contratados
+"
+NULL,bdtransporte,vw_anticipos,ndistancia,28,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,cfactura_ext,29,,YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references","Si el tipo de viaje es externo se guarda el numero de la factura de la mercancia transportada en el viaje externo"
+NULL,bdtransporte,vw_anticipos,ccliente_ext,30," ",YES,varchar,45,45,NULL,NULL,latin1,latin1_swedish_ci,varchar(45),,,"select,insert,update,references","Si el tipo de viaje es externo se guarda el nombre del cliente de la factura correspondiente al viaje externo"
+NULL,bdtransporte,vw_anticipos,cdescripcion_v,31," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,ctipo_vehic,32,0,YES,int,NULL,NULL,10,0,NULL,NULL,"int(1) unsigned",,,"select,insert,update,references","1:Liviano (<13Ton),  2:Mediano (13Ton<=X<=25Ton),  3:Pesado(>25Ton)"
+NULL,bdtransporte,vw_anticipos,npropio,33,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,nactivo_v,34,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,cnombre,35,,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,ccontraparte,36," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,cficha_nom,37," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,ncontratado,38,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,nactivo_c,39,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,cdescripcion_s,40,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,nactivo_s,41,0,YES,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,cdescripcion_p,42,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,dfecha_desde,43,NULL,NO,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,dfecha_hasta,44,NULL,NO,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,nstatus_p,45,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,tinyint(1),,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,cdescripcion_r,46," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,nactivo_r,47,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,cdescripcion_o,48,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,nactivo_o,49,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,nsucursal,50,NULL,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,cdescripcion_d,51,NULL,YES,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,ncount_viaje,52,NULL,YES,bigint,NULL,NULL,19,0,NULL,NULL,bigint(21),,,"select,insert,update,references",
+NULL,bdtransporte,vw_anticipos,ncount_anticipo,53,NULL,YES,bigint,NULL,NULL,19,0,NULL,NULL,bigint(21),,,"select,insert,update,references",
+NULL,bdtransporte,vw_choferes,cid_chofer,1,NULL,NO,varchar,9,9,NULL,NULL,latin1,latin1_swedish_ci,varchar(9),,,"select,insert,update,references",
+NULL,bdtransporte,vw_choferes,cnombre,2,,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_choferes,ccontraparte,3," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_choferes,cficha_nom,4," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_choferes,nid_sucursal,5,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_choferes,cid_usuario,6,NULL,NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,vw_choferes,dfecha_act,7,"0000-00-00 00:00:00",NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,,"select,insert,update,references",
+NULL,bdtransporte,vw_choferes,ncontratado,8,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_choferes,nactivo,9,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_choferes,cdescripcion_s,10,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_choferes,ntotal_viajes,11,0,NO,bigint,NULL,NULL,19,0,NULL,NULL,bigint(21),,,"select,insert,update,references",
+NULL,bdtransporte,vw_choferes,ntotal_peso,12,NULL,YES,double,NULL,NULL,23,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_choferes,ntotal_km,13,NULL,YES,double,NULL,NULL,23,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,nid_viaje,1,NULL,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,cid_periodo,2,NULL,NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,nporc_com,3,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(3) unsigned",,,"select,insert,update,references","% de comisión de la ruta."
+NULL,bdtransporte,vw_comision_choferes,ntabulador,4,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","tabulador de viaje para el tipo de vehículo en la ruta."
+NULL,bdtransporte,vw_comision_choferes,cid_chofer,5,NULL,NO,varchar,9,9,NULL,NULL,latin1,latin1_swedish_ci,varchar(9),,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,cid_vehiculo,6,NULL,NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,dfecha_v,7,NULL,YES,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,cguia,8," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,corden_carga,9," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,dfecha_guia,10,1900-01-01,YES,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references","si el tipo de viaje es 1:interno, se guarda la fecha de la guia, si el tipo de viaje es 2:externo, se guarda la fecha de la factura."
+NULL,bdtransporte,vw_comision_choferes,npeso_com,11,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Peso a comisionar"
+NULL,bdtransporte,vw_comision_choferes,nid_origen,12,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,nid_destino,13,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,cid_periodo_v,14," ",NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,ntipo_viaje,15,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Internos de la empresa. 2: Viajes Externos, 3: Viajes Contratados
+"
+NULL,bdtransporte,vw_comision_choferes,nid_sucursal_guia,16,0,YES,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,ndistancia,17,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,nstatus_v,18,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Normal,  2:Procesado,  3:Anulado"
+NULL,bdtransporte,vw_comision_choferes,cfactura_ext,19,,YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references","Si el tipo de viaje es externo se guarda el numero de la factura de la mercancia transportada en el viaje externo"
+NULL,bdtransporte,vw_comision_choferes,ccliente_ext,20," ",YES,varchar,45,45,NULL,NULL,latin1,latin1_swedish_ci,varchar(45),,,"select,insert,update,references","Si el tipo de viaje es externo se guarda el nombre del cliente de la factura correspondiente al viaje externo"
+NULL,bdtransporte,vw_comision_choferes,cdescripcion_v,21," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,ncapacidad,22,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Capacidad de carga del vehículo. (Peso neto de la carga)"
+NULL,bdtransporte,vw_comision_choferes,ctipo_vehic,23,0,YES,int,NULL,NULL,10,0,NULL,NULL,"int(1) unsigned",,,"select,insert,update,references","1:Liviano (<13Ton),  2:Mediano (13Ton<=X<=25Ton),  3:Pesado(>25Ton)"
+NULL,bdtransporte,vw_comision_choferes,npropio,24,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,nactivo_v,25,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,cnombre,26,,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,ccontraparte,27," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,cficha_nom,28," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,nid_sucursal,29,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,ncontratado,30,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,nactivo_c,31,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,cdescripcion_s,32,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,cconcepto_com,33,,YES,varchar,4,4,NULL,NULL,latin1,latin1_swedish_ci,varchar(4),,,"select,insert,update,references","Código del concepto de las comisiones para los choferes.
+"
+NULL,bdtransporte,vw_comision_choferes,casignacion_com,34,NULL,YES,varchar,4,4,NULL,NULL,latin1,latin1_swedish_ci,varchar(4),,,"select,insert,update,references","Código del concepto de las asignaciones para los choferes."
+NULL,bdtransporte,vw_comision_choferes,cdeduccion_com,35,NULL,YES,varchar,4,4,NULL,NULL,latin1,latin1_swedish_ci,varchar(4),,,"select,insert,update,references","Código del concepto de las deducciones para los choferes."
+NULL,bdtransporte,vw_comision_choferes,ncap_carga,36,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,nactivo_s,37,0,YES,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,nbono_alm,38,0.0000,YES,double,NULL,NULL,7,4,NULL,NULL,"double(7,4)",,,"select,insert,update,references","Incentivo por carga total despachada en el mes para el jefe de almacen"
+NULL,bdtransporte,vw_comision_choferes,nbono_mon,39,0.0000,YES,double,NULL,NULL,7,4,NULL,NULL,"double(7,4)",,,"select,insert,update,references","Incentivo por carga total despachada en el mes para el montacarguista"
+NULL,bdtransporte,vw_comision_choferes,nporc_com_s,40,0,YES,int,NULL,NULL,10,0,NULL,NULL,"int(3) unsigned",,,"select,insert,update,references","Porcentaje de capacidad de carga a partir del cual se paga comisión al jefe de almacen y montacarguista"
+NULL,bdtransporte,vw_comision_choferes,nid_anticipo,41,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,cnro_recibo,42," ",NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,nmonto_a,43,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,dfecha_a,44,1900-01-01,NO,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,nstatus_a,45,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Normal,  2:Procesado,  3:Anulado"
+NULL,bdtransporte,vw_comision_choferes,nid_relacion,46,NULL,YES,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,dfecha_r,47,1900-01-01,NO,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,nstatus_r,48,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Normal, 2: Contabilizado"
+NULL,bdtransporte,vw_comision_choferes,cdescripcion_r,49," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,cdescripcion_o,50,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,cdescripcion_p,51,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,dfecha_desde,52,NULL,NO,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,dfecha_hasta,53,NULL,NO,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,nticket_cesta,54,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,ndias_feriados,55,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(2) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,nmonto_com,56,NULL,YES,double,NULL,NULL,23,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,nmonto_r,57,NULL,YES,double,NULL,NULL,23,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,cdescripcion_d,58,NULL,YES,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,nmonto_ta,59,NULL,YES,double,NULL,NULL,23,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,ncount_viaje,60,NULL,YES,bigint,NULL,NULL,19,0,NULL,NULL,bigint(21),,,"select,insert,update,references",
+NULL,bdtransporte,vw_comision_choferes,ncount_anticipo,61,NULL,YES,bigint,NULL,NULL,19,0,NULL,NULL,bigint(21),,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,nid_relacion,1,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,dfecha,2,1900-01-01,NO,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,cid_usuario,3," ",NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,dfecha_act,4,"0000-00-00 00:00:00",NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,cobservacion,5,NULL,YES,text,65535,65535,NULL,NULL,latin1,latin1_swedish_ci,text,,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,nstatus,6,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Normal, 2: Contabilizado"
+NULL,bdtransporte,vw_enc_relaciones,nid_anticipo,7,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,cnro_recibo,8," ",NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,dfecha_a,9,1900-01-01,NO,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,nmonto_a,10,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,nid_sucursal,11,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,nid_anticipo_ant,12,NULL,YES,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",,,"select,insert,update,references","Guarda el número de anticipo al cual se está reemplazando."
+NULL,bdtransporte,vw_enc_relaciones,nstatus_a,13,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Normal,  2:Procesado,  3:Anulado"
+NULL,bdtransporte,vw_enc_relaciones,nid_viaje,14,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(14) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,dfecha_v,15,NULL,YES,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,cid_chofer,16,NULL,NO,varchar,9,9,NULL,NULL,latin1,latin1_swedish_ci,varchar(9),,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,nid_sucursal_c,17,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references","Sucursal a la que pertenece el chofer"
+NULL,bdtransporte,vw_enc_relaciones,cid_vehiculo,18,NULL,NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,nid_sucursal_v,19,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references","Sucursal a la que pertenece el vehiculo"
+NULL,bdtransporte,vw_enc_relaciones,cguia,20," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,dfecha_guia,21,1900-01-01,YES,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references","si el tipo de viaje es 1:interno, se guarda la fecha de la guia, si el tipo de viaje es 2:externo, se guarda la fecha de la factura."
+NULL,bdtransporte,vw_enc_relaciones,npeso_com,22,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Peso a comisionar"
+NULL,bdtransporte,vw_enc_relaciones,nid_sucursal_guia,23,0,YES,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,nid_origen,24,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,nid_destino,25,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,ndistancia,26,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,cid_periodo,27," ",NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,ntipo_viaje,28,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Internos de la empresa. 2: Viajes Externos, 3: Viajes Contratados
+"
+NULL,bdtransporte,vw_enc_relaciones,cfactura_ext,29,,YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references","Si el tipo de viaje es externo se guarda el numero de la factura de la mercancia transportada en el viaje externo"
+NULL,bdtransporte,vw_enc_relaciones,ccliente_ext,30," ",YES,varchar,45,45,NULL,NULL,latin1,latin1_swedish_ci,varchar(45),,,"select,insert,update,references","Si el tipo de viaje es externo se guarda el nombre del cliente de la factura correspondiente al viaje externo"
+NULL,bdtransporte,vw_enc_relaciones,cdescripcion_v,31," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,nactivo_v,32,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,cnombre,33,,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,nactivo_c,34,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,cdescripcion_s,35,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,cdescripcion_o,36,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,cdescripcion_d,37,NULL,YES,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,nmonto_tr,38,NULL,YES,double,NULL,NULL,23,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,nmonto_ta,39,NULL,YES,double,NULL,NULL,23,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,ncount_viaje,40,NULL,YES,bigint,NULL,NULL,19,0,NULL,NULL,bigint(21),,,"select,insert,update,references",
+NULL,bdtransporte,vw_enc_relaciones,ncount_anticipo,41,NULL,YES,bigint,NULL,NULL,19,0,NULL,NULL,bigint(21),,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,cid_vehiculo,1,NULL,NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,nid_sucursal,2,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,cdescripcion,3," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,cmarca,4," ",YES,varchar,30,30,NULL,NULL,latin1,latin1_swedish_ci,varchar(30),,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,cserial_motor,5," ",YES,varchar,30,30,NULL,NULL,latin1,latin1_swedish_ci,varchar(30),,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,cserial_carroc,6," ",YES,varchar,30,30,NULL,NULL,latin1,latin1_swedish_ci,varchar(30),,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,ntara,7,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Peso del vehículo vacio"
+NULL,bdtransporte,vw_gasto_serv,ncapacidad,8,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Capacidad de carga del vehículo. (Peso neto de la carga)"
+NULL,bdtransporte,vw_gasto_serv,ctipo_vehic,9,0,YES,int,NULL,NULL,10,0,NULL,NULL,"int(1) unsigned",,,"select,insert,update,references","1:Liviano (<13Ton),  2:Mediano (13Ton<=X<=25Ton),  3:Pesado(>25Ton)"
+NULL,bdtransporte,vw_gasto_serv,npropio,10,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,nactivo,11,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,nid_gasto,12,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,dfecha,13,NULL,NO,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,cfactura,14," ",NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,ntotal_gs,15,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,nstatus_gs,16,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1:Normal, 2:Contabilizado"
+NULL,bdtransporte,vw_gasto_serv,cid_servicio,17,NULL,NO,varchar,3,3,NULL,NULL,latin1,latin1_swedish_ci,varchar(3),,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,ntotal_dg,18,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,cdescripcion_sv,19,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,ccta_cont,20," ",NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,cdescrip_cta,21," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,ncontabiliza,22,1,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,cid_grupo,23,NULL,NO,varchar,2,2,NULL,NULL,latin1,latin1_swedish_ci,varchar(2),,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,cdescripcion_g,24,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_gasto_serv,cdescripcion_s,25,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,nid_relacion,1,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,dfecha,2,1900-01-01,NO,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,cid_usuario,3," ",NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,dfecha_act,4,"0000-00-00 00:00:00",NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,cobservacion,5,NULL,YES,text,65535,65535,NULL,NULL,latin1,latin1_swedish_ci,text,,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,nstatus,6,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Normal, 2: Contabilizado"
+NULL,bdtransporte,vw_relaciones,cid_tipogasto,7,NULL,NO,varchar,2,2,NULL,NULL,latin1,latin1_swedish_ci,varchar(2),,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,nmonto,8,NULL,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,cdescripcion_g,9," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,nid_anticipo,10,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,cnro_recibo,11," ",NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,dfecha_a,12,1900-01-01,NO,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,nmonto_a,13,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,nid_sucursal,14,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,nid_anticipo_ant,15,NULL,YES,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",,,"select,insert,update,references","Guarda el número de anticipo al cual se está reemplazando."
+NULL,bdtransporte,vw_relaciones,nstatus_a,16,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Normal,  2:Procesado,  3:Anulado"
+NULL,bdtransporte,vw_relaciones,nid_viaje,17,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(14) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,dfecha_v,18,NULL,YES,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,cid_chofer,19,NULL,NO,varchar,9,9,NULL,NULL,latin1,latin1_swedish_ci,varchar(9),,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,nid_sucursal_c,20,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references","Sucursal a la que pertenece el chofer"
+NULL,bdtransporte,vw_relaciones,cid_vehiculo,21,NULL,NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,nid_sucursal_v,22,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references","Sucursal a la que pertenece el vehiculo"
+NULL,bdtransporte,vw_relaciones,cguia,23," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,dfecha_guia,24,1900-01-01,YES,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references","si el tipo de viaje es 1:interno, se guarda la fecha de la guia, si el tipo de viaje es 2:externo, se guarda la fecha de la factura."
+NULL,bdtransporte,vw_relaciones,npeso_com,25,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Peso a comisionar"
+NULL,bdtransporte,vw_relaciones,nid_sucursal_guia,26,0,YES,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,nid_origen,27,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,nid_destino,28,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,ndistancia,29,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,cid_periodo,30," ",NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,ntipo_viaje,31,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Internos de la empresa. 2: Viajes Externos, 3: Viajes Contratados
+"
+NULL,bdtransporte,vw_relaciones,cfactura_ext,32,,YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references","Si el tipo de viaje es externo se guarda el numero de la factura de la mercancia transportada en el viaje externo"
+NULL,bdtransporte,vw_relaciones,ccliente_ext,33," ",YES,varchar,45,45,NULL,NULL,latin1,latin1_swedish_ci,varchar(45),,,"select,insert,update,references","Si el tipo de viaje es externo se guarda el nombre del cliente de la factura correspondiente al viaje externo"
+NULL,bdtransporte,vw_relaciones,cdescripcion_v,34," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,nactivo_v,35,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,cnombre,36,,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,nactivo_c,37,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,cdescripcion_s,38,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,cdescripcion_o,39,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,cdescripcion_d,40,NULL,YES,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,nmonto_tr,41,NULL,YES,double,NULL,NULL,23,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,nmonto_ta,42,NULL,YES,double,NULL,NULL,23,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,ncount_viaje,43,NULL,YES,bigint,NULL,NULL,19,0,NULL,NULL,bigint(21),,,"select,insert,update,references",
+NULL,bdtransporte,vw_relaciones,ncount_anticipo,44,NULL,YES,bigint,NULL,NULL,19,0,NULL,NULL,bigint(21),,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,nid_origen,1,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,nid_destino,2,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,ndistancia,3,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,cid_usuario,4," ",NO,varchar,20,20,NULL,NULL,latin1,latin1_swedish_ci,varchar(20),,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,dfecha_act,5,"0000-00-00 00:00:00",NO,timestamp,NULL,NULL,NULL,NULL,NULL,NULL,timestamp,,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,cdescripcion,6," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,nactivo,7,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,nporc_com,8,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(3) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,ncom_pes,9,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,ncom_med,10,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,ncom_liv,11,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,cdescripcion_o,12,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,cid_ciudad_o,13,NULL,NO,varchar,4,4,NULL,NULL,latin1,latin1_swedish_ci,varchar(4),,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,nactivo_o,14,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,nsucursal_o,15,NULL,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,cdescripcion_co,16,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,cid_estado_o,17,NULL,NO,varchar,2,2,NULL,NULL,latin1,latin1_swedish_ci,varchar(2),,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,cdescripcion_eo,18,,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,cdescripcion_d,19,NULL,YES,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,cid_ciudad_d,20,NULL,YES,varchar,4,4,NULL,NULL,latin1,latin1_swedish_ci,varchar(4),,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,nactivo_d,21,NULL,YES,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,nsucursal_d,22,NULL,YES,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,cdescripcion_cd,23,NULL,YES,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,cid_estado_d,24,NULL,YES,varchar,2,2,NULL,NULL,latin1,latin1_swedish_ci,varchar(2),,,"select,insert,update,references",
+NULL,bdtransporte,vw_rutas,cdescripcion_ed,25,NULL,YES,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,nid_viaje,1,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(14) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,cid_chofer,2,NULL,NO,varchar,9,9,NULL,NULL,latin1,latin1_swedish_ci,varchar(9),,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,cid_vehiculo,3,NULL,NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,dfecha_v,4,NULL,YES,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,cguia,5," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,npeso_com,6,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Peso a comisionar"
+NULL,bdtransporte,vw_viajes,nid_origen,7,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,nid_destino,8,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,ntipo_viaje,9,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Internos de la empresa. 2: Viajes Externos, 3: Viajes Contratados
+"
+NULL,bdtransporte,vw_viajes,ndistancia,10,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,nstatus_v,11,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Normal,  2:Procesado,  3:Anulado"
+NULL,bdtransporte,vw_viajes,cfactura_ext,12,,YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references","Si el tipo de viaje es externo se guarda el numero de la factura de la mercancia transportada en el viaje externo"
+NULL,bdtransporte,vw_viajes,ccliente_ext,13," ",YES,varchar,45,45,NULL,NULL,latin1,latin1_swedish_ci,varchar(45),,,"select,insert,update,references","Si el tipo de viaje es externo se guarda el nombre del cliente de la factura correspondiente al viaje externo"
+NULL,bdtransporte,vw_viajes,cnombre,14,,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,ccontraparte,15," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,cficha_nom,16," ",YES,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,nid_sucursal,17,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(4) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,ncontratado,18,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,nactivo_c,19,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,cdescripcion_v,20," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,ncapacidad,21,0,YES,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references","Capacidad de carga del vehículo. (Peso neto de la carga)"
+NULL,bdtransporte,vw_viajes,ctipo_vehic,22,0,YES,int,NULL,NULL,10,0,NULL,NULL,"int(1) unsigned",,,"select,insert,update,references","1:Liviano (<13Ton),  2:Mediano (13Ton<=X<=25Ton),  3:Pesado(>25Ton)"
+NULL,bdtransporte,vw_viajes,npropio,23,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,nactivo_v,24,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,crif_empext,25," ",YES,varchar,15,15,NULL,NULL,latin1,latin1_swedish_ci,varchar(15),,,"select,insert,update,references","Empresa transportista, en caso de que el vehículo sea contratado"
+NULL,bdtransporte,vw_viajes,cdescripcion_s,26,NULL,NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,ncap_carga,27,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,nactivo_s,28,0,YES,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,nbono_alm,29,0.0000,YES,double,NULL,NULL,7,4,NULL,NULL,"double(7,4)",,,"select,insert,update,references","Incentivo por carga total despachada en el mes para el jefe de almacen"
+NULL,bdtransporte,vw_viajes,nbono_mon,30,0.0000,YES,double,NULL,NULL,7,4,NULL,NULL,"double(7,4)",,,"select,insert,update,references","Incentivo por carga total despachada en el mes para el montacarguista"
+NULL,bdtransporte,vw_viajes,nporc_com_s,31,0,YES,int,NULL,NULL,10,0,NULL,NULL,"int(3) unsigned",,,"select,insert,update,references","Porcentaje de capacidad de carga a partir del cual se paga comisión al jefe de almacen y montacarguista"
+NULL,bdtransporte,vw_viajes,cdescripcion_r,32," ",NO,varchar,60,60,NULL,NULL,latin1,latin1_swedish_ci,varchar(60),,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,nporc_com_r,33,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(3) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,ncom_pes,34,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,ncom_med,35,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,ncom_liv,36,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,nid_anticipo,37,0,NO,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,cnro_recibo,38," ",NO,varchar,10,10,NULL,NULL,latin1,latin1_swedish_ci,varchar(10),,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,nmonto,39,0,NO,double,NULL,NULL,22,NULL,NULL,NULL,double,,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,dfecha_a,40,1900-01-01,NO,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,nstatus_a,41,0,NO,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Normal,  2:Procesado,  3:Anulado"
+NULL,bdtransporte,vw_viajes,nid_relacion,42,NULL,YES,int,NULL,NULL,10,0,NULL,NULL,"int(10) unsigned",,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,dfecha_r,43,1900-01-01,YES,date,NULL,NULL,NULL,NULL,NULL,NULL,date,,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,nstatus_r,44,0,YES,tinyint,NULL,NULL,3,0,NULL,NULL,"tinyint(1) unsigned",,,"select,insert,update,references","1: Normal, 2: Contabilizado"
+NULL,bdtransporte,vw_viajes,count_anticipo,45,NULL,YES,bigint,NULL,NULL,19,0,NULL,NULL,bigint(21),,,"select,insert,update,references",
+NULL,bdtransporte,vw_viajes,count_viaje,46,NULL,YES,bigint,NULL,NULL,19,0,NULL,NULL,bigint(21),,,"select,insert,update,references",

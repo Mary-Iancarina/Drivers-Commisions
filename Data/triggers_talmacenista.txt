@@ -1,0 +1,20 @@
+Delimiter|
+Create Trigger tgtalmacenista_insert After Insert On talmacenista
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('talmacenista','I',New.cId_Usuario,now(),new.cid_almacenista);
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtalmacenista_update After Update On talmacenista
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('talmacenista','U',New.cId_Usuario,now(),new.cid_almacenista);
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtalmacenista_delete Before Delete On talmacenista
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('talmacenista','D',OLD.cId_Usuario,now(),OLD.cid_almacenista);
+End
+|Delimiter;

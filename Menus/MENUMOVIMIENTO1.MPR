@@ -1,0 +1,338 @@
+*       *********************************************************
+*       *                                                         
+*       * 09/13/10         MENUMOVIMIENTO1.MPR          14:20:02  
+*       *                                                         
+*       *********************************************************
+*       *                                                         
+*       * Nombre del autor                                        
+*       *                                                         
+*       * Copyright (C) 2010 Nombre de la organización            
+*       * Dirección                                               
+*       * Ciudad,     Código pos                                  
+*       * País                                              
+*       *                                                         
+*       * Descripción:                                            
+*       * Este programa se generó automáticamente por GENMENU.    
+*       *                                                         
+*       *********************************************************
+
+
+*       *********************************************************
+*       *                                                         
+*       *                    Definición de menú                   
+*       *                                                         
+*       *********************************************************
+*
+
+SET SYSMENU TO
+SET SYSMENU AUTOMATIC
+
+DEFINE PAD _3120uq0el OF _MSYSMENU PROMPT "\<Archivo" COLOR SCHEME 3 ;
+	KEY ALT+A, ""
+DEFINE PAD _3120uq0em OF _MSYSMENU PROMPT "\<Movimiento" COLOR SCHEME 3 ;
+	KEY ALT+M, ""
+DEFINE PAD _3120uq0en OF _MSYSMENU PROMPT "Ma\<ntenimiento" COLOR SCHEME 3 ;
+	KEY ALT+N, ""
+DEFINE PAD _3120uq0eo OF _MSYSMENU PROMPT "\<Salir" COLOR SCHEME 3 ;
+	KEY ALT+S, ""
+DEFINE PAD _3120uq0ep OF _MSYSMENU PROMPT "\<Exploración" COLOR SCHEME 3 ;
+	KEY ALT+E, ""
+ON PAD _3120uq0el OF _MSYSMENU ACTIVATE POPUP archivo
+ON SELECTION PAD _3120uq0eo OF _MSYSMENU Quit
+ON PAD _3120uq0ep OF _MSYSMENU ACTIVATE POPUP exploració
+
+DEFINE POPUP archivo MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF archivo PROMPT "Choferes"
+DEFINE BAR 2 OF archivo PROMPT "Vehículos"
+ON SELECTION BAR 1 OF archivo do form frmChoferes.scx
+ON SELECTION BAR 2 OF archivo do form frmVehiculos.scx
+
+DEFINE POPUP exploració MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF exploració PROMPT "\<Primero"
+DEFINE BAR 2 OF exploració PROMPT "\<Anterior"
+DEFINE BAR 3 OF exploració PROMPT "\<Siguiente"
+DEFINE BAR 4 OF exploració PROMPT "\<Ultimo"
+DEFINE BAR 5 OF exploració PROMPT "\<Nuevo"
+DEFINE BAR 6 OF exploració PROMPT "\<Modificar"
+DEFINE BAR 7 OF exploració PROMPT "\<Eliminar"
+DEFINE BAR 8 OF exploració PROMPT "\<Guardar"
+DEFINE BAR 9 OF exploració PROMPT "\<Cancelar"
+DEFINE BAR 10 OF exploració PROMPT "\<Buscar"
+DEFINE BAR 11 OF exploració PROMPT "\<Imprimir"
+DEFINE BAR 12 OF exploració PROMPT "Ce\<rrar"
+ON SELECTION BAR 1 OF exploració ;
+	DO _3120uq0eq ;
+	IN LOCFILE("..\..\..\COMISIONESCHOF\MENUS\MENUMOVIMIENTO1" ,"MPX;MPR|FXP;PRG" ,"DÓNDE está MENUMOVIMIENTO1?")
+ON SELECTION BAR 2 OF exploració ;
+	DO _3120uq0er ;
+	IN LOCFILE("..\..\..\COMISIONESCHOF\MENUS\MENUMOVIMIENTO1" ,"MPX;MPR|FXP;PRG" ,"DÓNDE está MENUMOVIMIENTO1?")
+ON SELECTION BAR 3 OF exploració ;
+	DO _3120uq0es ;
+	IN LOCFILE("..\..\..\COMISIONESCHOF\MENUS\MENUMOVIMIENTO1" ,"MPX;MPR|FXP;PRG" ,"DÓNDE está MENUMOVIMIENTO1?")
+ON SELECTION BAR 4 OF exploració ;
+	DO _3120uq0et ;
+	IN LOCFILE("..\..\..\COMISIONESCHOF\MENUS\MENUMOVIMIENTO1" ,"MPX;MPR|FXP;PRG" ,"DÓNDE está MENUMOVIMIENTO1?")
+ON SELECTION BAR 5 OF exploració ;
+	DO _3120uq0eu ;
+	IN LOCFILE("..\..\..\COMISIONESCHOF\MENUS\MENUMOVIMIENTO1" ,"MPX;MPR|FXP;PRG" ,"DÓNDE está MENUMOVIMIENTO1?")
+ON SELECTION BAR 6 OF exploració ;
+	DO _3120uq0ev ;
+	IN LOCFILE("..\..\..\COMISIONESCHOF\MENUS\MENUMOVIMIENTO1" ,"MPX;MPR|FXP;PRG" ,"DÓNDE está MENUMOVIMIENTO1?")
+ON SELECTION BAR 7 OF exploració ;
+	DO _3120uq0ew ;
+	IN LOCFILE("..\..\..\COMISIONESCHOF\MENUS\MENUMOVIMIENTO1" ,"MPX;MPR|FXP;PRG" ,"DÓNDE está MENUMOVIMIENTO1?")
+ON SELECTION BAR 8 OF exploració ;
+	DO _3120uq0ex ;
+	IN LOCFILE("..\..\..\COMISIONESCHOF\MENUS\MENUMOVIMIENTO1" ,"MPX;MPR|FXP;PRG" ,"DÓNDE está MENUMOVIMIENTO1?")
+ON SELECTION BAR 9 OF exploració ;
+	DO _3120uq0ey ;
+	IN LOCFILE("..\..\..\COMISIONESCHOF\MENUS\MENUMOVIMIENTO1" ,"MPX;MPR|FXP;PRG" ,"DÓNDE está MENUMOVIMIENTO1?")
+ON SELECTION BAR 10 OF exploració ;
+	DO _3120uq0ez ;
+	IN LOCFILE("..\..\..\COMISIONESCHOF\MENUS\MENUMOVIMIENTO1" ,"MPX;MPR|FXP;PRG" ,"DÓNDE está MENUMOVIMIENTO1?")
+ON SELECTION BAR 11 OF exploració ;
+	DO _3120uq0f0 ;
+	IN LOCFILE("..\..\..\COMISIONESCHOF\MENUS\MENUMOVIMIENTO1" ,"MPX;MPR|FXP;PRG" ,"DÓNDE está MENUMOVIMIENTO1?")
+ON SELECTION BAR 12 OF exploració ;
+	DO _3120uq0f1 ;
+	IN LOCFILE("..\..\..\COMISIONESCHOF\MENUS\MENUMOVIMIENTO1" ,"MPX;MPR|FXP;PRG" ,"DÓNDE está MENUMOVIMIENTO1?")
+
+
+*       *********************************************************
+*       *                                                         
+*       * _3120UQ0EQ  ON SELECTION BAR 1 OF POPUP exploració      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENUMOVIMIENTO1.MPR,            Record:   12 
+*       * Called By:  ON SELECTION BAR 1 OF POPUP exploració      
+*       * Prompt:     Primero                                     
+*       * Snippet:    1                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _3120uq0eq
+IF _SCREEN.FORMCOUNT > 0 THEN
+	_SCREEN.ACTIVEFORM.Primero()
+ENDIF
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _3120UQ0ER  ON SELECTION BAR 2 OF POPUP exploració      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENUMOVIMIENTO1.MPR,            Record:   13 
+*       * Called By:  ON SELECTION BAR 2 OF POPUP exploració      
+*       * Prompt:     Anterior                                    
+*       * Snippet:    2                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _3120uq0er
+IF _SCREEN.FORMCOUNT > 0 THEN
+	_SCREEN.ACTIVEFORM.Anterior()
+ENDIF
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _3120UQ0ES  ON SELECTION BAR 3 OF POPUP exploració      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENUMOVIMIENTO1.MPR,            Record:   14 
+*       * Called By:  ON SELECTION BAR 3 OF POPUP exploració      
+*       * Prompt:     Siguiente                                   
+*       * Snippet:    3                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _3120uq0es
+IF _SCREEN.FORMCOUNT > 0 THEN
+	_SCREEN.ACTIVEFORM.Siguiente()
+ENDIF
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _3120UQ0ET  ON SELECTION BAR 4 OF POPUP exploració      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENUMOVIMIENTO1.MPR,            Record:   15 
+*       * Called By:  ON SELECTION BAR 4 OF POPUP exploració      
+*       * Prompt:     Ultimo                                      
+*       * Snippet:    4                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _3120uq0et
+IF _SCREEN.FORMCOUNT > 0 THEN
+	_SCREEN.ACTIVEFORM.Ultimo()
+ENDIF
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _3120UQ0EU  ON SELECTION BAR 5 OF POPUP exploració      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENUMOVIMIENTO1.MPR,            Record:   16 
+*       * Called By:  ON SELECTION BAR 5 OF POPUP exploració      
+*       * Prompt:     Nuevo                                       
+*       * Snippet:    5                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _3120uq0eu
+IF _SCREEN.FORMCOUNT > 0 THEN
+	_SCREEN.ACTIVEFORM.Nuevo()
+ENDIF
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _3120UQ0EV  ON SELECTION BAR 6 OF POPUP exploració      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENUMOVIMIENTO1.MPR,            Record:   17 
+*       * Called By:  ON SELECTION BAR 6 OF POPUP exploració      
+*       * Prompt:     Modificar                                   
+*       * Snippet:    6                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _3120uq0ev
+IF _SCREEN.FORMCOUNT > 0 THEN
+	_SCREEN.ACTIVEFORM.Modificar()
+ENDIF
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _3120UQ0EW  ON SELECTION BAR 7 OF POPUP exploració      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENUMOVIMIENTO1.MPR,            Record:   18 
+*       * Called By:  ON SELECTION BAR 7 OF POPUP exploració      
+*       * Prompt:     Eliminar                                    
+*       * Snippet:    7                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _3120uq0ew
+IF _SCREEN.FORMCOUNT > 0 THEN
+	_SCREEN.ACTIVEFORM.Eliminar()
+ENDIF
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _3120UQ0EX  ON SELECTION BAR 8 OF POPUP exploració      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENUMOVIMIENTO1.MPR,            Record:   19 
+*       * Called By:  ON SELECTION BAR 8 OF POPUP exploració      
+*       * Prompt:     Guardar                                     
+*       * Snippet:    8                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _3120uq0ex
+IF _SCREEN.FORMCOUNT > 0 THEN
+	_SCREEN.ACTIVEFORM.Guardar()
+ENDIF
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _3120UQ0EY  ON SELECTION BAR 9 OF POPUP exploració      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENUMOVIMIENTO1.MPR,            Record:   20 
+*       * Called By:  ON SELECTION BAR 9 OF POPUP exploració      
+*       * Prompt:     Cancelar                                    
+*       * Snippet:    9                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _3120uq0ey
+IF _SCREEN.FORMCOUNT > 0 THEN
+	_SCREEN.ACTIVEFORM.Cancelar()
+ENDIF
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _3120UQ0EZ  ON SELECTION BAR 10 OF POPUP exploració     
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENUMOVIMIENTO1.MPR,            Record:   21 
+*       * Called By:  ON SELECTION BAR 10 OF POPUP exploració     
+*       * Prompt:     Buscar                                      
+*       * Snippet:    10                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _3120uq0ez
+IF _SCREEN.FORMCOUNT > 0 THEN
+	_SCREEN.ACTIVEFORM.Buscar()
+ENDIF
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _3120UQ0F0  ON SELECTION BAR 11 OF POPUP exploració     
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENUMOVIMIENTO1.MPR,            Record:   22 
+*       * Called By:  ON SELECTION BAR 11 OF POPUP exploració     
+*       * Prompt:     Imprimir                                    
+*       * Snippet:    11                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _3120uq0f0
+IF _SCREEN.FORMCOUNT <> 0 THEN
+	_SCREEN.ACTIVEFORM.Imprimir()
+ENDIF
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _3120UQ0F1  ON SELECTION BAR 12 OF POPUP exploració     
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENUMOVIMIENTO1.MPR,            Record:   23 
+*       * Called By:  ON SELECTION BAR 12 OF POPUP exploració     
+*       * Prompt:     Cerrar                                      
+*       * Snippet:    12                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _3120uq0f1
+IF _SCREEN.FORMCOUNT > 0 THEN
+	_SCREEN.ACTIVEFORM.Cerrar()
+ENDIF
+

@@ -1,0 +1,20 @@
+Delimiter|
+Create Trigger tgtanticipo_insert After Insert On tAnticipo
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tAnticipo','I',New.cId_Usuario,now(),cast(new.nid_anticipo as char));
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtanticipo_update After Update On tAnticipo
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tAnticipo','U',New.cId_Usuario,now(),cast(new.nid_anticipo as char));
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtanticipo_delete Before Delete On tAnticipo
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tAnticipo','D',Old.cId_Usuario,now(),cast(Old.nid_anticipo as char));
+End
+|Delimiter;

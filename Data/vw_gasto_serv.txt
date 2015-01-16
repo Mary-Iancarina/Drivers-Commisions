@@ -1,0 +1,11 @@
+select tvh.cid_vehiculo,tvh.nid_sucursal,tvh.cdescripcion,tvh.cmarca,tvh.cserial_motor,tvh.cserial_carroc,tvh.ntara,
+    tvh.ncapacidad,tvh.ctipo_vehic,tvh.npropio,tvh.nactivo,tgs.nid_gasto,tgs.dfecha,tgs.cfactura,tgs.ntotal as ntotal_gs,
+    tgs.nstatus as nstatus_gs,tdg.cid_servicio,tdg.ntotal as ntotal_dg,tsv.cdescripcion as cdescripcion_sv,tsv.ccta_cont,
+    tsv.cdescrip_cta,tsv.ncontabiliza,tsv.cid_grupo,tgr.cdescripcion as cdescripcion_g,ts.cdescripcion as cdescripcion_s
+    from tvehiculo tvh
+    inner join tdetalle_gasto tdg on tdg.cid_vehiculo = tvh.cid_vehiculo and tdg.nid_sucursal_v = tvh.nid_sucursal
+    inner join tgasto_serv tgs on tgs.nid_gasto = tdg.nid_gasto
+    inner join tservicio tsv on tsv.cid_servicio = tdg.cid_servicio
+    inner join tgrupo_servicio tgr on tgr.cid_grupo = tsv.cid_grupo
+    inner join tsucursal ts on ts.nid_sucursal = tvh.nid_sucursal
+    order by tvh.cid_vehiculo,tvh.nid_sucursal,tgs.nid_gasto,tsv.cid_servicio

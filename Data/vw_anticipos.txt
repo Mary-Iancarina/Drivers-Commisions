@@ -1,0 +1,19 @@
+select tan.*,tvj.nid_viaje,tvj.cid_chofer,tvj.nid_sucursal_c,tvj.cid_vehiculo,tvj.nid_sucursal_v,tvj.dfecha as dfecha_v,
+  tvj.corden_carga,tvj.cguia,tvj.dfecha_guia,tvj.npeso_com,tvj.nid_sucursal_guia,tvj.cid_periodo,tvj.nid_origen,
+  tvj.nid_destino,tvj.ntipo_viaje,tvj.ndistancia,tvj.cfactura_ext,tvj.ccliente_ext,tvh.cdescripcion as cdescripcion_v,
+  tvh.ctipo_vehic,tvh.npropio,tvh.nactivo as nactivo_v,tch.cnombre,tch.ccontraparte,tch.cficha_nom,
+  tch.ncontratado,tch.nactivo as nactivo_c,ts.cdescripcion as cdescripcion_s,ts.nactivo as nactivo_s,
+  tp.cdescripcion as cdescripcion_p,tp.dfecha_desde,tp.dfecha_hasta,tp.nstatus as nstatus_p,tr.cdescripcion as cdescripcion_r,
+  tr.nactivo as nactivo_r,tod.cdescripcion as cdescripcion_o,tod.nactivo as nactivo_o,tod.nsucursal,
+  (select cdescripcion from torigen_destino where nid_origdest = tr.nid_destino) as cdescripcion_d,
+  (select count(nid_anticipo) from tanticip_tviaje where nid_anticipo = tan.nid_anticipo) as ncount_viaje,
+  (select count(nid_viaje) from tanticip_tviaje where nid_viaje = tvj.nid_viaje) as ncount_anticipo
+  from tanticipo tan
+  inner join tanticip_tviaje tav on tav.nid_anticipo = tan.nid_anticipo
+  inner join tviaje tvj on tvj.nid_viaje = tav.nid_viaje
+  inner join tchofer tch on tch.cid_chofer = tvj.cid_chofer and tch.nid_sucursal = tvj.nid_sucursal_c
+  inner join tsucursal ts on ts.nid_sucursal = tan.nid_sucursal
+  inner join tperiodo tp on tp.cid_periodo = tvj.cid_periodo
+  inner join tvehiculo tvh on tvh.cid_vehiculo = tvj.cid_vehiculo and tvh.nid_sucursal = tvj.nid_sucursal_v
+  inner join truta tr on tr.nid_origen = tvj.nid_origen and tr.nid_destino = tvj.nid_destino
+  inner join torigen_destino tod on tod.nid_origdest = tr.nid_origen

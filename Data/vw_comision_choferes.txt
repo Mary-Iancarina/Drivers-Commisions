@@ -1,0 +1,37 @@
+select tcc.nid_viaje,tcc.cid_periodo,tcc.nporc_com,tcc.ntabulador,
+  tvj.cid_chofer,tvj.cid_vehiculo,tvj.dfecha as dfecha_v,tvj.cguia,tvj.corden_carga,tvj.dfecha_guia,tvj.npeso_com,
+  tvj.nid_origen,tvj.nid_destino,tvj.cid_periodo as cid_periodo_v,tvj.ntipo_viaje,tvj.nid_sucursal_guia,
+  tvj.ndistancia,tvj.nstatus as nstatus_v,tvj.cfactura_ext,tvj.ccliente_ext,
+  tvh.cdescripcion as cdescripcion_v,tvh.ncapacidad,tvh.ctipo_vehic,tvh.npropio,tvh.nactivo as nactivo_v,
+  tch.cnombre,tch.ccontraparte,tch.cficha_nom,tch.nid_sucursal,tch.ncontratado,tch.nactivo as nactivo_c,
+  ts.cdescripcion as cdescripcion_s,ts.cconcepto_com,ts.casignacion_com,ts.cdeduccion_com,
+  ts.ncap_carga,ts.nactivo as nactivo_s,ts.nbono_alm,ts.nbono_mon,ts.nporc_com as nporc_com_s,
+  tan.nid_anticipo,tan.cnro_recibo,tan.nmonto as nmonto_a,tan.dfecha as dfecha_a,tan.nstatus as nstatus_a,tan.nid_relacion,
+  trl.dfecha as dfecha_r,trl.nstatus as nstatus_r,trt.cdescripcion as cdescripcion_r,tod.cdescripcion as cdescripcion_o,
+  tp.cdescripcion as cdescripcion_p,tp.dfecha_desde,tp.dfecha_hasta,tp.nticket_cesta,tp.ndias_feriados,
+  ((((tvj.npeso_com*tcc.ntabulador)/1000)*tcc.nporc_com)/100)as nmonto_com,
+  sum(tdr.nmonto) as nmonto_r,(select cdescripcion from torigen_destino where nid_origdest = tvj.nid_destino) as cdescripcion_d,
+  (select sum(nmonto) from tanticipo where nid_relacion = trl.nid_relacion) as nmonto_ta,
+  (select count(nid_anticipo) from tanticip_tviaje where nid_anticipo = tan.nid_anticipo) as ncount_viaje,
+  (select count(nid_viaje) from tanticip_tviaje where nid_viaje = tvj.nid_viaje) as ncount_anticipo
+  from tcomision_choferes tcc
+  inner join tviaje tvj on tvj.nid_viaje = tcc.nid_viaje
+  inner join tvehiculo tvh on tvh.cid_vehiculo = tvj.cid_vehiculo
+  inner join tchofer tch on tch.cid_chofer = tvj.cid_chofer and tch.nid_sucursal = tvj.nid_sucursal_c
+  inner join tsucursal ts on ts.nid_sucursal = tch.nid_sucursal
+  inner join tanticip_tviaje tav on tav.nid_viaje = tvj.nid_viaje
+  inner join tanticipo tan on tan.nid_anticipo = tav.nid_anticipo
+  inner join trelacion trl on trl.nid_relacion = tan.nid_relacion
+  inner join tdetalle_relacion tdr on tdr.nid_relacion = trl.nid_relacion
+  inner join truta trt on trt.nid_origen = tvj.nid_origen and trt.nid_destino = tvj.nid_destino
+  inner join torigen_destino tod on tod.nid_origdest = trt.nid_origen
+  inner join tperiodo tp on tp.cid_periodo = tcc.cid_periodo
+  group by tcc.nid_viaje,tcc.cid_periodo,tcc.nporc_com,tcc.ntabulador,
+  tvj.cid_chofer,tvj.cid_vehiculo,tvj.dfecha,tvj.cguia,tvj.corden_carga,tvj.dfecha_guia,npeso_com,
+  tvj.nid_origen,tvj.nid_destino,tvj.cid_periodo,tvj.ntipo_viaje,tvj.nid_sucursal_guia,
+  tvj.ndistancia,tvj.nstatus,tvj.cfactura_ext,tvj.ccliente_ext,
+  tvh.cdescripcion,tvh.ncapacidad,tvh.ctipo_vehic,tvh.npropio,tvh.nactivo,
+  tch.cnombre,tch.ccontraparte,tch.cficha_nom,tch.nid_sucursal,tch.ncontratado,tch.nactivo,
+  ts.cdescripcion,ts.ncap_carga,ts.nactivo,ts.nbono_alm,ts.nbono_mon,ts.nporc_com,
+  tan.nid_anticipo,tan.cnro_recibo,tan.nmonto,tan.dfecha,tan.nstatus,tan.nid_relacion,
+  trl.dfecha,trl.nstatus,trt.cdescripcion,tod.cdescripcion,tp.cdescripcion,tp.dfecha_desde,tp.dfecha_hasta

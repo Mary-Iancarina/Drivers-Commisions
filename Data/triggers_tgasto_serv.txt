@@ -1,0 +1,20 @@
+Delimiter|
+Create Trigger tgtgasto_serv_insert After Insert On tgasto_serv
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tgasto_serv','I',New.cId_Usuario,now(),cast(new.nid_gasto as char));
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtgasto_serv_update After Update On tgasto_serv
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tgasto_serv','U',New.cId_Usuario,now(),cast(new.nid_gasto as char));
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtgasto_serv_delete Before Delete On tgasto_serv
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tgasto_serv','D',Old.cId_Usuario,now(),cast(Old.nid_gasto as char));
+End
+|Delimiter;

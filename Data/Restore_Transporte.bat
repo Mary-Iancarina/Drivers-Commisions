@@ -1,0 +1,1 @@
+mysql -u root --password= bdtransporte < C:\ComisionesChof\Backups\BdTransporte.sql

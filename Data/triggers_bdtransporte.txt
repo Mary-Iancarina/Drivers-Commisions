@@ -1,0 +1,23 @@
+show triggers from bdtransporte;
+drop trigger tgtestado_insert;
+
+Delimiter|
+Create Trigger tgtestado_insert After Insert On tEstado
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tEstado','I',New.cId_Usuario,now(),new.cid_estado);
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtestado_update After Update On tEstado
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tEstado','U',New.cId_Usuario,now(),new.cid_estado);
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtestado_delete Before Delete On tEstado
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tEstado','D',OLD.cId_Usuario,now(),OLD.cid_estado);
+End
+|Delimiter;

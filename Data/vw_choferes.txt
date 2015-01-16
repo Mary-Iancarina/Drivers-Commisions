@@ -1,0 +1,7 @@
+select tch.*,ts.cdescripcion as cdescripcion_s,count(tvj.cid_chofer) as ntotal_viajes,
+  (sum(tvj.npeso_neto)/1000) as ntotal_peso,sum(tvj.ndistancia) as ntotal_km
+  from tchofer tch
+  inner join tsucursal ts on ts.nid_sucursal = tch.nid_sucursal
+  inner join tviaje tvj on tvj.cid_chofer = tch.cid_chofer and tvj.nid_sucursal_c = tch.nid_sucursal
+  group by tch.cid_chofer
+  order by cast(tch.cid_chofer as unsigned);

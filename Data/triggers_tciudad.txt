@@ -1,0 +1,20 @@
+Delimiter|
+Create Trigger tgtciudad_insert After Insert On tciudad
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tCiudad','I',New.cId_Usuario,now(),new.cid_ciudad);
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtciudad_update After Update On tciudad
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tCiudad','U',New.cId_Usuario,now(),new.cid_ciudad);
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtciudad_delete Before Delete On tciudad
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tCiudad','D',OLD.cId_Usuario,now(),OLD.cid_ciudad);
+End
+|Delimiter;

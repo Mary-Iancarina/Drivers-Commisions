@@ -1,0 +1,11 @@
+show triggers from bdtransporte;
+drop trigger tgtSucursal_tOrigen_Insert;
+
+
+Delimiter|
+Create Trigger tgtSucursal_tOrigen_Insert Before Insert On tSucursal
+For Each Row Begin
+  Insert Into torigen_destino(cDescripcion,cId_Ciudad,cId_Usuario,nOrigen,nactivo,nsucursal) Values(New.cDescripcion,New.cId_Ciudad,New.cId_Usuario,1,new.nactivo,1);
+  SET New.nid_origdest=LAST_INSERT_ID();
+End
+|Delimiter;

@@ -1,0 +1,87 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_insert_tviaje_ext_tanticipo`(tcid_chofer varchar(9),tcid_vehiculo varchar(10),tccliente_ext varchar(45),tcfactura_ext varchar(10),tdfecha_guia date,tnpeso_neto double,tcid_usuario varchar(20),tnid_origen int(4),tnid_destino int(4),tcid_periodo varchar(10),tntipo_viaje tinyint(1),tcnro_recibo varchar(10),tnmonto double,tcobservacion text,tndistancia double)
+BEGIN
+   Declare nError,lnid_anticipo,lnid_viaje Int(10);
+   Start Transaction;
+
+      insert into tviaje (cid_chofer,cid_vehiculo,dfecha,ccliente_ext,cfactura_ext,dfecha_guia,npeso_neto,nid_origen,nid_destino,cid_periodo,ntipo_viaje,cid_usuario,ndistancia,cobservacion,nstatus)
+         values(tcid_chofer,tcid_vehiculo,now(),tccliente_ext,tcfactura_ext,tdfecha_guia,tnpeso_neto,tnid_origen,tnid_destino,tcid_periodo,tntipo_viaje,tcid_usuario,tndistancia,tcobservacion,1);
+      set lnid_anticipo = last_insert_id();
+      insert into tanticipo (cnro_recibo,nmonto,nid_viaje,dfecha,cobservacion,cid_usuario)
+         values (tcnro_recibo,tnmonto,last_insert_id(),now(),tcobservacion,tcid_usuario);
+      set lnid_viaje = last_insert_id();
+      insert into tanticipo_tviaje (nid_anticipo,nid_viaje) values(lnid_anticipo,lnid_viaje);
+
+   Set nError =(Select @Error);
+   if(nError>0) then
+      ROLLBACK;
+   else
+      COMMIT;
+   end if;
+
+END
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_insert_tviaje_tanticipo`(tcid_chofer varchar(9),tcid_vehiculo varchar(10),tcguia varchar(10),tcorden_carga varchar(10),tdfecha_guia date,tnpeso_neto double,tcid_usuario varchar(20),tnid_origen int(4),tnid_destino int(4),tcid_periodo varchar(10),tntipo_viaje tinyint(1),tnid_sucursal_guia int(4),tcnro_recibo varchar(10),tnmonto double,tcobservacion text,tndistancia double)
+BEGIN
+   Declare nError,lnid_anticipo,lnid_viaje Int(10);
+   Start Transaction;
+
+      insert into tviaje (cid_chofer,cid_vehiculo,dfecha,cguia,corden_carga,dfecha_guia,npeso_neto,nid_origen,nid_destino,cid_periodo,ntipo_viaje,nid_sucursal_guia,cid_usuario,ndistancia,cobservacion,nstatus)
+         values(tcid_chofer,tcid_vehiculo,now(),tcguia,tcorden_carga,tdfecha_guia,tnpeso_neto,tnid_origen,tnid_destino,tcid_periodo,tntipo_viaje,tnid_sucursal_guia,tcid_usuario,tndistancia,tcobservacion,1);
+      set lnid_anticipo = last_insert_id();
+      insert into tanticipo (cnro_recibo,nmonto,nid_viaje,dfecha,cobservacion,cid_usuario)
+         values (tcnro_recibo,tnmonto,last_insert_id(),now(),tcobservacion,tcid_usuario);
+      set lnid_viaje = last_insert_id();
+      insert into tanticipo_tviaje (nid_anticipo,nid_viaje) values(lnid_anticipo,lnid_viaje);
+
+   Set nError =(Select @Error);
+   if(nError>0) then
+      ROLLBACK;
+   else
+      COMMIT;
+   end if;
+
+
+END
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_update_tviaje_ext_tanticipo`(tcid_usuario varchar(20),tnid_origen int(4),tnid_destino int(4),tcnro_recibo varchar(10),tnmonto double,tcobservacion text,tndistancia double,tnid_viaje int(10),tnid_anticipo int(10))
+BEGIN
+   Declare nError Int(10);
+   Start Transaction;
+
+      update tviaje set nid_origen = tnid_origen,nid_destino = tnid_destino,cid_usuario = tcid_usuario,ndistancia = tndistancia,cobservacion = tcobservacion where nid_viaje = tnid_viaje;
+      update tanticipo set cnro_recibo = tcnro_recibo,nmonto = tnmonto,cobservacion = tcobservacion,cid_usuario = tcid_usuario where nid_anticipo = tnid_anticipo;
+
+
+   Set nError =(Select @Error);
+   if(nError>0) then
+      ROLLBACK;
+   else
+      COMMIT;
+   end if;
+
+END
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_update_tviaje_tanticipo`(tcid_usuario varchar(20),tnid_origen int(4),tnid_destino int(4),tcnro_recibo varchar(10),tnmonto double,tcobservacion text,tndistancia double,tnid_viaje int(10),tnid_anticipo int(10))
+BEGIN
+   Declare nError Int(10);
+   Start Transaction;
+
+      update tviaje set nid_origen = tnid_origen,nid_destino = tnid_destino,cid_usuario = tcid_usuario,ndistancia = tndistancia,cobservacion = tcobservacion where nid_viaje = tnid_viaje;
+      update tanticipo set cnro_recibo = tcnro_recibo,nmonto = tnmonto,cobservacion = tcobservacion,cid_usuario = tcid_usuario where nid_anticipo = tnid_anticipo;
+
+
+   Set nError =(Select @Error);
+   if(nError>0) then
+      ROLLBACK;
+   else
+      COMMIT;
+   end if;
+
+
+END

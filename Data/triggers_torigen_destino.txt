@@ -1,0 +1,20 @@
+Delimiter|
+Create Trigger tgtorigen_destino_insert After Insert On torigen_destino
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('torigen_destino','I',New.cId_Usuario,now(),cast(new.nid_origdest as char));
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtorigen_destino_update After Update On torigen_destino
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('torigen_destino','U',New.cId_Usuario,now(),cast(new.nid_origdest as char));
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtorigen_destino_delete Before Delete On torigen_destino
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('torigen_destino','D',Old.cId_Usuario,now(),cast(Old.nid_origdest as char));
+End
+|Delimiter;

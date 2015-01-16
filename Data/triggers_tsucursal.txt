@@ -1,0 +1,22 @@
+Delimiter|
+Create Trigger tgtsucursal_insert After Insert On tsucursal
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tsucursal','I',New.cId_Usuario,now(),cast(new.nid_sucursal as char));
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtsucursal_update After Update On tsucursal
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tsucursal','U',New.cId_Usuario,now(),cast(new.nid_sucursal as char));
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtsucursal_delete Before Delete On tsucursal
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tsucursal','D',Old.cId_Usuario,now(),cast(Old.nid_sucursal as char));
+  update torigen_destino set cId_Usuario = old.cId_Usuario, nactivo = 0 where nid_origdest = old.nid_origdest;
+End
+|Delimiter;
+

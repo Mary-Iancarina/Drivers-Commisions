@@ -1,0 +1,14 @@
+select tr.*,tod.cdescripcion as cdescripcion_o,tod.cid_ciudad as cid_ciudad_o,tod.nactivo as nactivo_o,
+  tod.nsucursal as nsucursal_o,tc.cdescripcion as cdescripcion_co,tc.cid_estado as cid_estado_o,
+  te.cdescripcion as cdescripcion_eo,
+  (select cdescripcion from torigen_destino where nid_origdest = tr.nid_destino) as cdescripcion_d,
+  (select cid_ciudad from torigen_destino where nid_origdest = tr.nid_destino) as cid_ciudad_d,
+  (select nactivo from torigen_destino where nid_origdest = tr.nid_destino) as nactivo_d,
+  (select nsucursal from torigen_destino where nid_origdest = tr.nid_destino) as nsucursal_d,
+  (select cdescripcion from tciudad where cid_ciudad = cid_ciudad_d) as cdescripcion_cd,
+  (select cid_estado from tciudad where cid_ciudad = cid_ciudad_d) as cid_estado_d,
+  (select cdescripcion from testado where cid_estado = cid_estado_d) as cdescripcion_ed
+  from truta tr
+  inner join torigen_destino tod on tod.nid_origdest = tr.nid_origen
+  inner join tciudad tc on tc.cid_ciudad = tod.cid_ciudad
+  inner join testado te on te.cid_estado = tc.cid_estado

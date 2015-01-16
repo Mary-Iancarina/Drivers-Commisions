@@ -1,0 +1,20 @@
+Delimiter|
+Create Trigger tgtservicio_insert After Insert On tservicio
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tservicio','I',New.cId_Usuario,now(),new.cid_servicio);
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtservicio_update After Update On tservicio
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tservicio','U',New.cId_Usuario,now(),new.cid_servicio);
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtservicio_delete Before Delete On tservicio
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tservicio','D',OLD.cId_Usuario,now(),OLD.cid_servicio);
+End
+|Delimiter;

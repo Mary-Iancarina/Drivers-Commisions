@@ -1,0 +1,111 @@
+select tvj.nid_viaje,tvj.cid_chofer,tvj.cid_vehiculo,tvj.dfecha AS dfecha_v,tvj.cguia,tvj.npeso_com,tvj.nid_origen,
+  tvj.nid_destino,tvj.ntipo_viaje,tvj.ndistancia,tvj.nstatus AS nstatus_v,tvj.cfactura_ext,tvj.ccliente_ext,tch.cnombre,
+  tch.ccontraparte,tch.cficha_nom,tch.nid_sucursal,tch.ncontratado,tch.nactivo AS nactivo_c,
+  tvh.cdescripcion AS cdescripcion_v,tvh.ncapacidad,tvh.ctipo_vehic,tvh.npropio,tvh.nactivo AS nactivo_v,tvh.crif_empext,
+  ts.cdescripcion AS cdescripcion_s,ts.ncap_carga,ts.nactivo AS nactivo_s,ts.nbono_alm,ts.nbono_mon,ts.nporc_com AS nporc_com_s,
+  tr.cdescripcion AS cdescripcion_r,tr.nporc_com AS nporc_com_r,tr.ncom_pes,tr.ncom_med,tr.ncom_liv,
+  tan.nid_anticipo,tan.cnro_recibo,tan.nmonto AS nmonto,tan.dfecha AS dfecha_a,tan.nstatus AS nstatus_a,
+  tan.nid_relacion,trl.dfecha AS dfecha_r,trl.nstatus AS nstatus_r,
+  (select count(tav1.nid_anticipo) from tanticip_tviaje tav1 inner join tanticipo tan1 on tan1.nid_anticipo = tav1.nid_anticipo where tan1.nstatus <> 3 and tav1.nid_anticipo = tan.nid_anticipo) AS count_anticipo,
+  (select count(tav2.nid_viaje) from tanticip_tviaje tav2 inner join tanticipo tan2 on tan2.nid_anticipo = tav2.nid_anticipo where tan2.nstatus <> 3 and tav2.nid_viaje = tvj.nid_viaje) AS count_viaje
+  from tviaje tvj
+  inner join tchofer tch on tch.cid_chofer = tvj.cid_chofer and tch.nid_sucursal = tvj.nid_sucursal_c
+  inner join tsucursal ts on ts.nid_sucursal = tch.nid_sucursal
+  inner join tvehiculo tvh on tvh.cid_vehiculo = tvj.cid_vehiculo and tvh.nid_sucursal = tvj.nid_sucursal_v
+  inner join truta tr on tr.nid_origen = tvj.nid_origen and tr.nid_destino = tvj.nid_destino
+  inner join tanticip_tviaje tav on tav.nid_viaje = tvj.nid_viaje
+  inner join tanticipo tan on tan.nid_anticipo = tav.nid_anticipo
+  left join trelacion trl on trl.nid_relacion = tan.nid_relacion
+;
+
+
+
+
+
+-----------------------funciono hasta el 10032011;;
+select tvj.nid_viaje,tvj.cid_chofer,tvj.cid_vehiculo,tvj.dfecha AS dfecha_v,tvj.cguia,tvj.npeso_neto,tvj.nid_origen,
+  tvj.nid_destino,tvj.ntipo_viaje,tvj.ndistancia,tvj.nstatus AS nstatus_v,tvj.cfactura_ext,tvj.ccliente_ext,tch.cnombre,
+  tch.ccontraparte,tch.cficha_nom,tch.nid_sucursal,tch.ncontratado,tch.nactivo AS nactivo_c,
+  tvh.cdescripcion AS cdescripcion_v,tvh.ncapacidad,tvh.ctipo_vehic,tvh.npropio,tvh.nactivo AS nactivo_v,tvh.crif_empext,
+  ts.cdescripcion AS cdescripcion_s,ts.ncap_carga,ts.nactivo AS nactivo_s,ts.nbono_alm,ts.nbono_mon,ts.nporc_com AS nporc_com_s,
+  tr.cdescripcion AS cdescripcion_r,tr.nporc_com AS nporc_com_r,tr.ncom_pes,tr.ncom_med,tr.ncom_liv,
+  tan.nid_anticipo,tan.cnro_recibo,tan.nmonto AS nmonto,tan.dfecha AS dfecha_a,tan.nstatus AS nstatus_a,
+  tan.nid_relacion,trl.dfecha AS dfecha_r,trl.nstatus AS nstatus_r,
+  (select count(tav1.nid_anticipo) from tanticip_tviaje tav1 where tav1.nid_anticipo = tan.nid_anticipo) AS count_anticipo,
+  (select count(tav2.nid_viaje) from tanticip_tviaje tav2 where tav2.nid_viaje = tvj.nid_viaje) AS count_viaje
+  from tviaje tvj
+  inner join tchofer tch on tch.cid_chofer = tvj.cid_chofer and tch.nid_sucursal = tvj.nid_sucursal_c
+  inner join tsucursal ts on ts.nid_sucursal = tch.nid_sucursal
+  inner join tvehiculo tvh on tvh.cid_vehiculo = tvj.cid_vehiculo and tvh.nid_sucursal = tvj.nid_sucursal_v
+  inner join truta tr on tr.nid_origen = tvj.nid_origen and tr.nid_destino = tvj.nid_destino
+  inner join tanticip_tviaje tav on tav.nid_viaje = tvj.nid_viaje
+  inner join tanticipo tan on tan.nid_anticipo = tav.nid_anticipo
+  left join trelacion trl on trl.nid_relacion = tan.nid_relacion
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- Borrador
+select tvj.nid_viaje,tvj.cid_chofer,tvj.cid_vehiculo,tvj.dfecha as dfecha_v,tvj.cguia,tvj.npeso_neto,tvj.nid_origen,
+  tvj.nid_destino,tvj.ntipo_viaje,tvj.ndistancia,tvj.nstatus as nstatus_v,tvj.cfactura_ext,tvj.ccliente_ext,
+  tch.cnombre,tch.ccontraparte,tch.cficha_nom,tch.nid_sucursal,tch.ncontratado,tch.nactivo as nactivo_c,
+  tvh.cdescripcion as cdescripcion_v,tvh.ncapacidad,tvh.ctipo_vehic,tvh.npropio,tvh.nactivo as nactivo_v,tvh.crif_empext,
+  ts.cdescripcion as cdescripcion_s,ts.ncap_carga,ts.nactivo,ts.nbono_alm,ts.nbono_mon,ts.nporc_com,
+  tr.cdescripcion as cdescripcion_r,tr.nporc_com,tr.ncom_pes,tr.ncom_med,tr.ncom_liv,
+  tan.nid_anticipo,tan.cnro_recibo,tan.nmonto,tan.dfecha as dfecha_a,tan.nstatus as nstatus_a,tan.nid_relacion,
+  trl.dfecha as dfecha_r,trl.nstatus as nstatus_r,
+  (select count(nid_anticipo) from tanticip_tviaje where nid_anticipo = tan.nid_anticipo) as count_viaje,
+  (select count(nid_viaje) from tanticip_tviaje where nid_viaje = tvj.nid_viaje) as count_anticipo
+  from tviaje tvj
+  inner join tchofer tch on tch.cid_chofer = tvj.cid_chofer
+  inner join tsucursal ts on ts.nid_sucursal = tch.nid_sucursal
+  inner join tvehiculo tvh on tvh.cid_vehiculo = tvj.cid_vehiculo
+  inner join truta tr on tr.nid_origen = tvj.nid_origen and tr.nid_destino = tvj.nid_destino
+  inner join tanticip_tviaje tav on tav.nid_viaje = tvj.nid_viaje
+  inner join tanticipo tan on tan.nid_anticipo = tav.nid_anticipo
+  left join trelacion trl on trl.nid_relacion = tan.nid_relacion
+  where ((trl.nstatus = 1 and (trl.dfecha between '2010-10-01' and '2010-10-16')) or (ifnull(trl.dfecha,1) = 1))-- and tvj.nid_viaje =  100000002
+;
+
+
+
+-- Guardada
+CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_viajes` AS 
+select `tvj`.`nid_viaje` AS `nid_viaje`,`tvj`.`cid_chofer` AS `cid_chofer`,`tvj`.`cid_vehiculo` AS `cid_vehiculo`,
+`tvj`.`dfecha` AS `dfecha_v`,`tvj`.`cguia` AS `cguia`,`tvj`.`npeso_neto` AS `npeso_neto`,
+`tvj`.`nid_origen` AS `nid_origen`,`tvj`.`nid_destino` AS `nid_destino`,`tvj`.`ntipo_viaje` AS `ntipo_viaje`,
+`tvj`.`ndistancia` AS `ndistancia`,`tvj`.`nstatus` AS `nstatus_v`,`tvj`.`cfactura_ext` AS `cfactura_ext`,
+`tvj`.`ccliente_ext` AS `ccliente_ext`,`tch`.`cnombre` AS `cnombre`,`tch`.`ccontraparte` AS `ccontraparte`,
+`tch`.`cficha_nom` AS `cficha_nom`,`tch`.`nid_sucursal` AS `nid_sucursal`,`tch`.`ncontratado` AS `ncontratado`,
+`tch`.`nactivo` AS `nactivo_c`,`tvh`.`cdescripcion` AS `cdescripcion_v`,`tvh`.`ncapacidad` AS `ncapacidad`,
+`tvh`.`ctipo_vehic` AS `ctipo_vehic`,`tvh`.`npropio` AS `npropio`,`tvh`.`nactivo` AS `nactivo_v`,
+`tvh`.`crif_empext` AS `crif_empext`,`ts`.`cdescripcion` AS `cdescripcion_s`,`ts`.`ncap_carga` AS `ncap_carga`,
+`ts`.`nactivo` AS `nactivo_s`,`ts`.`nbono_alm` AS `nbono_alm`,`ts`.`nbono_mon` AS `nbono_mon`,
+`ts`.`nporc_com` AS `nporc_com_s`,`tr`.`cdescripcion` AS `cdescripcion_r`,`tr`.`nporc_com` AS `nporc_com_r`,
+`tr`.`ncom_pes` AS `ncom_pes`,`tr`.`ncom_med` AS `ncom_med`,`tr`.`ncom_liv` AS `ncom_liv`,
+`tan`.`nid_anticipo` AS `nid_anticipo`,`tan`.`cnro_recibo` AS `cnro_recibo`,`tan`.`nmonto` AS `nmonto`,
+`tan`.`dfecha` AS `dfecha_a`,`tan`.`nstatus` AS `nstatus_a`,`tan`.`nid_relacion` AS `nid_relacion`,
+`trl`.`dfecha` AS `dfecha_r`,`trl`.`nstatus` AS `nstatus_r`,
+(select count(`tanticip_tviaje`.`nid_anticipo`) AS `count(nid_anticipo)` from `tanticip_tviaje` where (`tanticip_tviaje`.`nid_anticipo` = `tan`.`nid_anticipo`)) AS `count_anticipo`,
+(select count(`tanticip_tviaje`.`nid_viaje`) AS `count(nid_viaje)` from `tanticip_tviaje` where (`tanticip_tviaje`.`nid_viaje` = `tvj`.`nid_viaje`)) AS `count_viaje` 
+from (((((((`tviaje` `tvj` 
+join `tchofer` `tch` on(((`tch`.`cid_chofer` = `tvj`.`cid_chofer`) and (`tch`.`nid_sucursal` = `tvj`.`nid_sucursal_c`)))) 
+join `tsucursal` `ts` on((`ts`.`nid_sucursal` = `tch`.`nid_sucursal`))) 
+join `tvehiculo` `tvh` on(((`tvh`.`cid_vehiculo` = `tvj`.`cid_vehiculo`) and (`tvh`.`nid_sucursal` = `tvj`.`nid_sucursal_v`)))) 
+join `truta` `tr` on(((`tr`.`nid_origen` = `tvj`.`nid_origen`) and (`tr`.`nid_destino` = `tvj`.`nid_destino`)))) 
+join `tanticip_tviaje` `tav` on((`tav`.`nid_viaje` = `tvj`.`nid_viaje`))) 
+join `tanticipo` `tan` on((`tan`.`nid_anticipo` = `tav`.`nid_anticipo`))) 
+left join `trelacion` `trl` on((`trl`.`nid_relacion` = `tan`.`nid_relacion`)))

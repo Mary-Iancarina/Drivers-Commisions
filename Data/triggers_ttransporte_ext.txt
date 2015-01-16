@@ -1,0 +1,20 @@
+Delimiter|
+Create Trigger tgttransporte_ext_insert After Insert On ttransporte_ext
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('ttransporte_ext','I',New.cId_Usuario,now(),new.crif);
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgttransporte_ext_update After Update On ttransporte_ext
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('ttransporte_ext','U',New.cId_Usuario,now(),new.crif);
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtttransporte_ext_delete Before Delete On ttransporte_ext
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('ttransporte_ext','D',OLD.cId_Usuario,now(),OLD.crif);
+End
+|Delimiter;

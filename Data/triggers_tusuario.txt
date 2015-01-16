@@ -1,0 +1,20 @@
+Delimiter|
+Create Trigger tgtusuario_insert After Insert On tusuario
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tusuario','I',New.cId_Usuario,now(),new.cid_usuario);
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtusuario_update After Update On tusuario
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tusuario','U',New.cId_Usuario,now(),new.cid_usuario);
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtusuario_delete Before Delete On tusuario
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tusuario','D',OLD.cId_Usuario,now(),OLD.cid_usuario);
+End
+|Delimiter;

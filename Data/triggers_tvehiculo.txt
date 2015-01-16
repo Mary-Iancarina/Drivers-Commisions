@@ -1,0 +1,20 @@
+Delimiter|
+Create Trigger tgtvehiculo_insert After Insert On tvehiculo
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tvehiculo','I',New.cId_Usuario,now(),new.cid_vehiculo);
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtvehiculo_update After Update On tvehiculo
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tvehiculo','U',New.cId_Usuario,now(),new.cid_vehiculo);
+End
+|Delimiter;
+
+Delimiter|
+Create Trigger tgtvehiculo_delete Before Delete On tvehiculo
+For Each Row Begin
+  Insert Into tbitacora(ctabla,coperacion,cid_usuario,dfecha,cregistro) Values('tvehiculo','D',OLD.cId_Usuario,now(),OLD.cid_vehiculo);
+End
+|Delimiter;
