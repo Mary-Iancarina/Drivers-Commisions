@@ -43,17 +43,17 @@ plncalc_com = .F.
 plnconfig = .F.
 
 SET ANSI ON
-SET EXACT ON
-SET DATE DMY
-SET TALK OFF
-SET ESCAPE OFF
 SET CENTURY ON
-SET SAFETY OFF
-SET EXCLUSIVE OFF
+SET DATE DMY
 SET DELETED ON
-SET SYSMENU OFF
-SET STATUS BAR OFF
+SET ESCAPE OFF
+SET EXACT ON
+SET EXCLUSIVE OFF
 SET HOURS TO 24
+SET SAFETY OFF
+SET STATUS BAR OFF
+SET SYSMENU OFF
+SET TALK OFF
 ON SHUTDOWN Salirsp()
 pnProgram=2
 pcRuta = FULLPATH(CURDIR())
@@ -67,7 +67,7 @@ _SCREEN.ICON =LOCFILE("camion_16_mary.ico")
 
 &&Validando Servidor
 lcTexto = ""
-IF FILE("Config.txt")
+IF !FILE("Config.txt")
 	lcEject="Import From " + CHR(34) + pcRuta + "Config.txt" + CHR(34) +" Type Xls"
 	&lcEject
 	GO BOTTOM

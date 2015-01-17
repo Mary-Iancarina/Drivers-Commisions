@@ -1,12 +1,12 @@
 *       *********************************************************
 *       *                                                         
-*       * 08/11/14          MENUPRINCIPAL.MPR           14:57:27  
+*       * 01/17/15          MENUPRINCIPAL.MPR           10:17:59  
 *       *                                                         
 *       *********************************************************
 *       *                                                         
 *       * Author's Name                                           
 *       *                                                         
-*       * Copyright (C) 2014 Company Name                         
+*       * Copyright (C) 2015 Company Name                         
 *       * Address                                                 
 *       * City,     Zip                                           
 *       *                                                         
@@ -26,24 +26,24 @@
 SET SYSMENU TO
 SET SYSMENU AUTOMATIC
 
-DEFINE PAD _44x0w2576 OF _MSYSMENU PROMPT "\<Archivo" COLOR SCHEME 3 ;
+DEFINE PAD _49e0m2qqf OF _MSYSMENU PROMPT "\<Archivo" COLOR SCHEME 3 ;
 	KEY ALT+A, ""
-DEFINE PAD _44x0w2577 OF _MSYSMENU PROMPT "\<Movimientos" COLOR SCHEME 3 ;
+DEFINE PAD _49e0m2qqg OF _MSYSMENU PROMPT "\<Movimientos" COLOR SCHEME 3 ;
 	KEY ALT+M, ""
-DEFINE PAD _44x0w2578 OF _MSYSMENU PROMPT "\<Reportes" COLOR SCHEME 3 ;
+DEFINE PAD _49e0m2qqh OF _MSYSMENU PROMPT "\<Reportes" COLOR SCHEME 3 ;
 	KEY ALT+R, ""
-DEFINE PAD _44x0w2579 OF _MSYSMENU PROMPT "Ma\<ntenimiento" COLOR SCHEME 3 ;
+DEFINE PAD _49e0m2qqi OF _MSYSMENU PROMPT "Ma\<ntenimiento" COLOR SCHEME 3 ;
 	KEY ALT+N, ""
-DEFINE PAD _44x0w257a OF _MSYSMENU PROMPT "Proveedores" COLOR SCHEME 3 ;
+DEFINE PAD _49e0m2qqj OF _MSYSMENU PROMPT "Proveedores" COLOR SCHEME 3 ;
 	KEY ALT+P, ""
-DEFINE PAD _44x0w257b OF _MSYSMENU PROMPT "\<Salir" COLOR SCHEME 3 ;
+DEFINE PAD _49e0m2qqk OF _MSYSMENU PROMPT "\<Salir" COLOR SCHEME 3 ;
 	KEY ALT+S, ""
-ON PAD _44x0w2576 OF _MSYSMENU ACTIVATE POPUP archivo
-ON PAD _44x0w2577 OF _MSYSMENU ACTIVATE POPUP movimiento
-ON PAD _44x0w2578 OF _MSYSMENU ACTIVATE POPUP reportes
-ON PAD _44x0w2579 OF _MSYSMENU ACTIVATE POPUP mantenimie
-ON SELECTION PAD _44x0w257a OF _MSYSMENU do form frmproveedor.scx
-ON SELECTION PAD _44x0w257b OF _MSYSMENU Quit
+ON PAD _49e0m2qqf OF _MSYSMENU ACTIVATE POPUP archivo
+ON PAD _49e0m2qqg OF _MSYSMENU ACTIVATE POPUP movimiento
+ON PAD _49e0m2qqh OF _MSYSMENU ACTIVATE POPUP reportes
+ON PAD _49e0m2qqi OF _MSYSMENU ACTIVATE POPUP mantenimie
+ON SELECTION PAD _49e0m2qqj OF _MSYSMENU do form frmproveedor.scx
+ON SELECTION PAD _49e0m2qqk OF _MSYSMENU Quit
 
 DEFINE POPUP archivo MARGIN RELATIVE SHADOW COLOR SCHEME 4
 DEFINE BAR 1 OF archivo PROMPT "\<Almacenistas" ;
@@ -125,7 +125,7 @@ ON SELECTION BAR 5 OF movimiento do form frmcompletar_viajes.scx
 ON SELECTION BAR 7 OF movimiento do form frmviajes.scx
 ON SELECTION BAR 9 OF movimiento do form frmgasto_servicio.scx
 ON SELECTION BAR 11 OF movimiento ;
-	DO _44x0w257c ;
+	DO _49e0m2qql ;
 	IN LOCFILE("\COMISIONESCHOF\MENUS\MENUPRINCIPAL" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENUPRINCIPAL?")
 ON SELECTION BAR 12 OF movimiento do form frmcalcular_comisiones.scx
 ON SELECTION BAR 13 OF movimiento do form frmcalcular_comisioneschof.scx
@@ -194,14 +194,14 @@ DEFINE BAR 5 OF mantenimie PROMPT "\<Configuración" ;
 	SKIP FOR wExist("frmconfig") or !(plnconfig)
 ON SELECTION BAR 1 OF mantenimie do form frmusuarios.scx
 ON SELECTION BAR 3 OF mantenimie ;
-	DO _44x0w257d ;
+	DO _49e0m2qqm ;
 	IN LOCFILE("\COMISIONESCHOF\MENUS\MENUPRINCIPAL" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENUPRINCIPAL?")
 ON SELECTION BAR 5 OF mantenimie do form frmconfig.scx
 
 
 *       *********************************************************
 *       *                                                         
-*       * _44X0W257C  ON SELECTION BAR 11 OF POPUP movimiento     
+*       * _49E0M2QQL  ON SELECTION BAR 11 OF POPUP movimiento     
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -212,7 +212,7 @@ ON SELECTION BAR 5 OF mantenimie do form frmconfig.scx
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _44x0w257c
+PROCEDURE _49e0m2qql
 IF MESSAGEBOX("¿Confirma Ud. que desea cerrar el periodo activo actualmente?",4+32+256,"Cerrar Periodo") = 6 THEN
 	LOCAL lnConex
 	lnConex = CrearConexion()
@@ -232,7 +232,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _44X0W257D  ON SELECTION BAR 3 OF POPUP mantenimie      
+*       * _49E0M2QQM  ON SELECTION BAR 3 OF POPUP mantenimie      
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -243,7 +243,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _44x0w257d
+PROCEDURE _49e0m2qqm
 IF MESSAGEBOX("¿Confirma Ud. que desea cerrar el periodo activo actualmente?",4+32+256,"Cerrar Periodo") = 6 THEN
 	LOCAL lnConex
 	lnConex = CrearConexion()
