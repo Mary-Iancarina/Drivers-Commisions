@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <job>
   <name>Set Vehicle</name>
     <description/>
@@ -8,7 +9,7 @@
   <created_user>-</created_user>
   <created_date>2015&#47;01&#47;16 19:59:53.251</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2015&#47;01&#47;16 20:00:38.857</modified_date>
+  <modified_date>2015&#47;01&#47;17 15:08:44.904</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -84,11 +85,10 @@
       <name>fta_vehicle</name>
       <description/>
       <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
+      <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename/>
-      <transname>fta_vehicle</transname>
-      <directory>&#47;</directory>
+      <filename>${Internal.Job.Filename.Directory}&#47;fta_vehicle.ktr</filename>
+      <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -117,11 +117,10 @@
       <name>Merge Data of Vehicle</name>
       <description/>
       <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
+      <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename/>
-      <transname>Merge Data of Vehicle</transname>
-      <directory>&#47;</directory>
+      <filename>${Internal.Job.Filename.Directory}&#47;Merge Data of Vehicle.ktr</filename>
+      <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -161,7 +160,7 @@
       <description/>
       <type>MAIL</type>
       <server>smtp.gmail.com</server>
-      <port>587</port>
+      <port>465</port>
       <destination>analistadesistema@mary-iancarina.com</destination>
       <destinationCc>sistemas@mary-iancarina.com</destinationCc>
       <destinationBCc/>
@@ -185,7 +184,7 @@
       <encoding>UTF-8</encoding>
       <priority>normal</priority>
       <importance>normal</importance>
-      <secureconnectiontype>TLS</secureconnectiontype>
+      <secureconnectiontype>SSL</secureconnectiontype>
       <replyToAddresses/>
       <filetypes>      </filetypes>      <embeddedimages>
       </embeddedimages>

@@ -63,32 +63,10 @@
   <created_user>-</created_user>
   <created_date>2015&#47;01&#47;16 17:53:18.136</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2015&#47;01&#47;16 20:14:22.216</modified_date>
+  <modified_date>2015&#47;01&#47;17 15:08:11.065</modified_date>
   </info>
   <notepads>
   </notepads>
-  <connection>
-    <name>adempiere</name>
-    <server>canaima</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>adempiere</database>
-    <port>5432</port>
-    <username>adempiere</username>
-    <password>Encrypted 2be98afc86aa7f2d0f94ffc2289c6f988</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <connection>
     <name>Adempiere</name>
     <server>canaima</server>
@@ -219,17 +197,17 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>adempiere</connection>
-    <sql>SELECT fta_vehicle_id, left(description,60) as value, name FROM fta_vehicle where ad_client_id = &apos;1000000&apos;</sql>
+    <connection>Adempiere</connection>
+    <sql>SELECT fta_vehicle_id, left(description,60) as value, name FROM fta_vehicle where ad_client_id = ${COMPANY}</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
+    <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>149</xloc>
-      <yloc>79</yloc>
+      <xloc>151</xloc>
+      <yloc>77</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

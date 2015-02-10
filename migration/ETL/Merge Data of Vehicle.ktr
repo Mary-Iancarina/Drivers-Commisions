@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
     <name>Merge Data of Vehicle</name>
@@ -63,7 +64,7 @@
   <created_user>-</created_user>
   <created_date>2015&#47;01&#47;16 19:46:37.945</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2015&#47;01&#47;16 19:50:48.681</modified_date>
+  <modified_date>2015&#47;01&#47;17 15:08:58.887</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -127,11 +128,12 @@
            <schema_name/>
            </partitioning>
     <connection>Adempiere</connection>
-    <sql>SELECT * FROM FTA_Vehicle WHERE AD_Client_ID = 1000000</sql>
+    <sql>SELECT FTA_Vehicle_id ,vehicleplate,coalesce(description,vehicleplate,description)as description FROM FTA_Vehicle WHERE AD_Client_ID = ${COMPANY} 
+ORDER BY vehicleplate ASC</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
+    <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -152,7 +154,8 @@
            <schema_name/>
            </partitioning>
     <connection>Transporte</connection>
-    <sql>SELECT * FROM tvehiculo</sql>
+    <sql>SELECT * FROM tvehiculo 
+ORDER BY cid_vehiculo ASC</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -162,6 +165,52 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>136</xloc>
       <yloc>230</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Insert &#47; Update</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>Transporte</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>tvehiculo</table>
+      <key>
+        <name>vehicleplate</name>
+        <field>cid_vehiculo</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>cid_vehiculo</name>
+        <rename>vehicleplate</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>cdescripcion</name>
+        <rename>description</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>fta_vehicle_id</name>
+        <rename>fta_vehicle_id</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>595</xloc>
+      <yloc>163</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -212,52 +261,6 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>409</xloc>
-      <yloc>163</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Insert &#47; Update</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>Transporte</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>tvehiculo</table>
-      <key>
-        <name>vehicleplate</name>
-        <field>cid_vehiculo</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>cid_vehiculo</name>
-        <rename>vehicleplate</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>cdescripcion</name>
-        <rename>description</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>fta_vehicle_id</name>
-        <rename>fta_vehicle_id</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>595</xloc>
       <yloc>163</yloc>
       <draw>Y</draw>
       </GUI>

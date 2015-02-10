@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>ad_org</name>
+    <name>Set Data for Travel Charge</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -62,9 +62,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2015&#47;01&#47;16 16:04:10.608</created_date>
+  <created_date>2015&#47;01&#47;17 14:24:54.168</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2015&#47;01&#47;19 08:12:16.536</modified_date>
+  <modified_date>2015&#47;01&#47;17 16:22:07.421</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -115,35 +115,133 @@
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
-  <connection>
-    <name>transporte_test</name>
-    <server>canaima</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>transporte_test</database>
-    <port>3306</port>
-    <username>admin</username>
-    <password>Encrypted 2be98afc86aa7f2d0f94ffc2289c6f988</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <order>
-  <hop> <from>Table input</from><to>Insert &#47; Update</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Read Data for Travel Charge from Adempiere </from><to>Database lookup Sucursal</to><enabled>Y</enabled> </hop>  <hop> <from>Database lookup Sucursal</from><to>Database lookup Chofer</to><enabled>Y</enabled> </hop>  <hop> <from>Database lookup Chofer</from><to>Database lookup  Vehiculo</to><enabled>N</enabled> </hop>  <hop> <from>Database lookup  Vehiculo</from><to>Insert &#47; Update Travel Charge</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>Insert &#47; Update</name>
+    <name>Database lookup  Vehiculo</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>Transporte</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>tvehiculo</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>fta_vehicle_id</name>
+        <field>fta_vehicle_id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>cid_vehiculo</name>
+        <rename>cid_vehiculo</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>731</xloc>
+      <yloc>172</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Database lookup Chofer</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>Transporte</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>tchofer</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>fta_driver_id</name>
+        <field>fta_driver_id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>cid_chofer</name>
+        <rename>cid_chofer</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>556</xloc>
+      <yloc>171</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Database lookup Sucursal</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>Transporte</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>tsucursal</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>ad_org_id</name>
+        <field>ad_org_id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>nid_sucursal</name>
+        <rename>nid_sucursal</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>361</xloc>
+      <yloc>171</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Insert &#47; Update Travel Charge</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -157,10 +255,10 @@
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>tad_org</table>
+      <table>tcarga_viaje</table>
       <key>
-        <name>ad_org_id</name>
-        <field>ad_org_id</field>
+        <name>fta_recordweight_id</name>
+        <field>fta_recordweight_id</field>
         <condition>=</condition>
         <name2/>
       </key>
@@ -170,26 +268,66 @@
         <update>Y</update>
       </value>
       <value>
-        <name>value</name>
-        <rename>value</rename>
+        <name>dfecha_carga</name>
+        <rename>dfecha_carga</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>name</name>
-        <rename>name</rename>
+        <name>fta_vehicle_id</name>
+        <rename>fta_vehicle_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>fta_driver_id</name>
+        <rename>fta_driver_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>isprocessed</name>
+        <rename>isprocessed</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>fta_recordweight_id</name>
+        <rename>fta_recordweight_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cid_sucursal</name>
+        <rename>nid_sucursal</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cid_chofer</name>
+        <rename>cid_chofer</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cid_vehiculo</name>
+        <rename>cid_vehiculo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>npeso_neto</name>
+        <rename>netweight</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>nid_guia</name>
+        <rename>nid_guia</rename>
         <update>Y</update>
       </value>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>240</xloc>
-      <yloc>47</yloc>
+      <xloc>947</xloc>
+      <yloc>170</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table input</name>
+    <name>Read Data for Travel Charge from Adempiere </name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -199,7 +337,15 @@
            <schema_name/>
            </partitioning>
     <connection>Adempiere</connection>
-    <sql>SELECT ad_org_id, value, name FROM adempiere.ad_org where ad_client_id = ${COMPANY}</sql>
+    <sql>SELECT lo.AD_Org_ID,rw.outdate AS dfecha_carga,et.fta_vehicle_id,
+et.fta_driver_id, 0 AS isprocessed, rw.fta_recordweight_id,
+coalesce (rw.netweight,lo.weight) netweight, 
+lo.documentno  as nid_guia
+FROM fta_entryticket et 
+INNER JOIN fta_loadorder lo ON et.fta_entryticket_id = lo.fta_entryticket_id 
+left JOIN fta_recordweight rw ON lo.fta_loadorder_id = rw.fta_loadorder_id  
+WHERE et.AD_Client_ID = ${COMPANY} and lo.docstatus in(&apos;CO&apos;, &apos;CL&apos;) and lo.isDelivered = &apos;Y&apos; and lo.ad_org_id = 1000012
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -207,8 +353,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>88</xloc>
-      <yloc>48</yloc>
+      <xloc>146</xloc>
+      <yloc>172</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

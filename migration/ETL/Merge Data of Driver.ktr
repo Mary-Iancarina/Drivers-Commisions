@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
     <name>Merge Data of Driver</name>
@@ -63,7 +64,7 @@
   <created_user>-</created_user>
   <created_date>2015&#47;01&#47;16 19:26:56.842</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2015&#47;01&#47;16 19:45:19.937</modified_date>
+  <modified_date>2015&#47;01&#47;17 15:10:25.987</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -127,11 +128,14 @@
            <schema_name/>
            </partitioning>
     <connection>Adempiere</connection>
-    <sql>SELECT * FROM FTA_Driver WHERE AD_Client_ID = 1000000</sql>
+    <sql>SELECT fta_driver_id, value, name,  &apos;IMPORTACION&apos; as user_name , 
+case ad_org_id when 1000012 then 1 when 1000009 then 2 when 1000008 then 3 when 1000005 then 4 when 1000007 then 5 when 1000006 then 6  else 1 end as ad_org_id
+FROM FTA_Driver WHERE AD_Client_ID = ${COMPANY} 
+ORDER BY value ASC</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
+    <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -152,7 +156,8 @@
            <schema_name/>
            </partitioning>
     <connection>Transporte</connection>
-    <sql>SELECT * FROM tchofer</sql>
+    <sql>SELECT * FROM tchofer 
+ORDER BY cid_chofer ASC</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -162,6 +167,62 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>182</xloc>
       <yloc>217</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Insert &#47; Update</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>Transporte</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>tchofer</table>
+      <key>
+        <name>value</name>
+        <field>cid_chofer</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>cid_chofer</name>
+        <rename>value</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>cnombre</name>
+        <rename>name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>fta_driver_id</name>
+        <rename>fta_driver_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cid_usuario</name>
+        <rename>user_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>nid_sucursal</name>
+        <rename>ad_org_id</rename>
+        <update>N</update>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>641</xloc>
+      <yloc>150</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -212,52 +273,6 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>455</xloc>
-      <yloc>150</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Insert &#47; Update</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>Transporte</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>tchofer</table>
-      <key>
-        <name>value</name>
-        <field>cid_chofer</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>cid_chofer</name>
-        <rename>value</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>cnombre</name>
-        <rename>name</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>fta_driver_id</name>
-        <rename>fta_driver_id</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>641</xloc>
       <yloc>150</yloc>
       <draw>Y</draw>
       </GUI>
