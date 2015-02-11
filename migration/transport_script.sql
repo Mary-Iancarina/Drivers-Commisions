@@ -14,5 +14,3 @@ alter table tchofer add column (fta_driver_id int);
 
 create table tdocumento_caja (cfactura varchar(30), ncontrol varchar(30), dfecha date, ntotal double, crif_emp varchar(12), tipo_documento char(1), 
 isprocessed TINYINT(1), cid_sucursal int(4), ad_table_id int, record_id int);
-
-create table tguia_despacho (nid_guia int auto_increment, dfecha date,  npeso_neto double, primary key (nid_guia));

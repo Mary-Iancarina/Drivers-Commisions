@@ -116,7 +116,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Read Data for Travel Charge from Adempiere </from><to>Database lookup Sucursal</to><enabled>Y</enabled> </hop>  <hop> <from>Database lookup Sucursal</from><to>Database lookup Chofer</to><enabled>Y</enabled> </hop>  <hop> <from>Database lookup Chofer</from><to>Database lookup  Vehiculo</to><enabled>N</enabled> </hop>  <hop> <from>Database lookup  Vehiculo</from><to>Insert &#47; Update Travel Charge</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Read Data for Travel Charge from Adempiere </from><to>Database lookup Sucursal</to><enabled>Y</enabled> </hop>  <hop> <from>Database lookup Sucursal</from><to>Database lookup Chofer</to><enabled>Y</enabled> </hop>  <hop> <from>Database lookup Chofer</from><to>Database lookup  Vehiculo</to><enabled>Y</enabled> </hop>  <hop> <from>Database lookup  Vehiculo</from><to>Insert &#47; Update Travel Charge</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Database lookup  Vehiculo</name>
     <type>DBLookup</type>
@@ -344,8 +344,7 @@ lo.documentno  as nid_guia
 FROM fta_entryticket et 
 INNER JOIN fta_loadorder lo ON et.fta_entryticket_id = lo.fta_entryticket_id 
 left JOIN fta_recordweight rw ON lo.fta_loadorder_id = rw.fta_loadorder_id  
-WHERE et.AD_Client_ID = ${COMPANY} and lo.docstatus in(&apos;CO&apos;, &apos;CL&apos;) and lo.isDelivered = &apos;Y&apos; and lo.ad_org_id = 1000012
-</sql>
+WHERE et.AD_Client_ID = ${COMPANY} and lo.docstatus in(&apos;CO&apos;, &apos;CL&apos;) and lo.isDelivered = &apos;Y&apos; </sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

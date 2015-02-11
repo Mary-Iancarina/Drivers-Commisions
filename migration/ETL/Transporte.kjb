@@ -179,8 +179,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>404</xloc>
-      <yloc>237</yloc>
+      <xloc>400</xloc>
+      <yloc>206</yloc>
       </entry>
     <entry>
       <name>Set Drivers</name>
@@ -209,8 +209,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>442</xloc>
-      <yloc>144</yloc>
+      <xloc>471</xloc>
+      <yloc>108</yloc>
       </entry>
     <entry>
       <name>Set Data for Travel Charge</name>
@@ -241,40 +241,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>555</xloc>
-      <yloc>103</yloc>
-      </entry>
-    <entry>
-      <name>Set Cash Document</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>${Internal.Job.Filename.Directory}&#47;Set Cash Document.ktr</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>694</xloc>
-      <yloc>146</yloc>
+      <xloc>605</xloc>
+      <yloc>92</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -283,8 +251,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>823</xloc>
-      <yloc>244</yloc>
+      <xloc>816</xloc>
+      <yloc>224</yloc>
       </entry>
     <entry>
       <name>Mail</name>
@@ -322,8 +290,38 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>608</xloc>
-      <yloc>355</yloc>
+      <xloc>601</xloc>
+      <yloc>289</yloc>
+      </entry>
+    <entry>
+      <name>Cash Document</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>${Internal.Job.Filename.Directory}&#47;Prepare Cash Document.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>742</xloc>
+      <yloc>110</yloc>
       </entry>
   </entries>
   <hops>
@@ -373,24 +371,6 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Set Data for Travel Charge</from>
-      <to>Set Cash Document</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Set Cash Document</from>
-      <to>Success</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>ad_org</from>
       <to>Mail</to>
       <from_nr>0</from_nr>
@@ -427,7 +407,25 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Set Cash Document</from>
+      <from>Set Data for Travel Charge</from>
+      <to>Cash Document</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Cash Document</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Cash Document</from>
       <to>Mail</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>

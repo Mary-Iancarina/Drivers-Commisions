@@ -128,7 +128,10 @@
            <schema_name/>
            </partitioning>
     <connection>Adempiere</connection>
-    <sql>SELECT FTA_Vehicle_id ,vehicleplate,coalesce(description,vehicleplate,description)as description FROM FTA_Vehicle WHERE AD_Client_ID = ${COMPANY} 
+    <sql>SELECT FTA_Vehicle_id ,vehicleplate, coalesce(name,vehicleplate,name) as description,
+1 as npropio, 1 as nactivo,
+case fta_vehicleType_id when 1000001 then 1 when 1000002 then 2 else 3 end as ctipo_vehic
+ FROM FTA_Vehicle WHERE AD_Client_ID = ${COMPANY} 
 ORDER BY vehicleplate ASC</sql>
     <limit>0</limit>
     <lookup/>
@@ -192,9 +195,14 @@ ORDER BY cid_vehiculo ASC</sql>
         <name2/>
       </key>
       <value>
+        <name>fta_vehicle_id</name>
+        <rename>fta_vehicle_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
         <name>cid_vehiculo</name>
         <rename>vehicleplate</rename>
-        <update>N</update>
+        <update>Y</update>
       </value>
       <value>
         <name>cdescripcion</name>
@@ -202,9 +210,24 @@ ORDER BY cid_vehiculo ASC</sql>
         <update>Y</update>
       </value>
       <value>
-        <name>fta_vehicle_id</name>
-        <rename>fta_vehicle_id</rename>
+        <name>npropio</name>
+        <rename>npropio</rename>
         <update>Y</update>
+      </value>
+      <value>
+        <name>nactivo</name>
+        <rename>nactivo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ctipo_vehic</name>
+        <rename>ctipo_vehic</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>nid_sucursal</name>
+        <rename>nid_sucursal</rename>
+        <update>N</update>
       </value>
     </lookup>
      <cluster_schema/>

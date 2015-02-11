@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
     <name>fta_vehicle</name>
@@ -198,7 +199,8 @@
            <schema_name/>
            </partitioning>
     <connection>Adempiere</connection>
-    <sql>SELECT fta_vehicle_id, left(description,60) as value, name FROM fta_vehicle where ad_client_id = ${COMPANY}</sql>
+    <sql>SELECT fta_vehicle_id, left(description,60) as value, name
+FROM fta_vehicle where ad_client_id = ${COMPANY}</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
