@@ -6,7 +6,7 @@ PUBLIC plncerrar_periodos,plnfrmalmacenistas,plnfrmanticipo_viaje,plnfrmcargar_a
 	plnfrmchoferes,plnfrmciudades,plnfrmestados,plnfrmgasto_servicio,plnfrmgrupos_serv,plnfrmmontacarguistas,;
 	plnfrmorigendestinos,plnfrmperiodos,plnfrmrelacion,plnfrmrutas,plnfrmservicios,plnfrmsucursales,;
 	plnfrmtipo_gastos,plnfrmtransp_ext,plnfrmusuarios,plnfrmvehiculos,plnfrmviajes,plnmov_fperiodo,;
-	plnanular,plnrep_com,plncalc_com,plnconfig
+	plnanular,plnrep_com,plncalc_com,plnconfig, pcOrdenCarga
 LOCAL lcArchivo,lnCon,lnSize,lcTexto,lcEject,lcCmd
 
 pcUsuarioSystem = ""
