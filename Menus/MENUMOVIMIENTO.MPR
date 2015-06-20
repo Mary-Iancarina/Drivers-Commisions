@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 06/16/15         MENUMOVIMIENTO.MPR           11:13:15  
+*       * 06/19/15         MENUMOVIMIENTO.MPR           19:30:37  
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -26,20 +26,20 @@
 SET SYSMENU TO
 SET SYSMENU AUTOMATIC
 
-DEFINE PAD _4dk0o1tku OF _MSYSMENU PROMPT "\<Archivo" COLOR SCHEME 3 ;
+DEFINE PAD _4dn15tfu8 OF _MSYSMENU PROMPT "\<Archivo" COLOR SCHEME 3 ;
 	KEY ALT+A, ""
-DEFINE PAD _4dk0o1tkv OF _MSYSMENU PROMPT "\<Movimientos" COLOR SCHEME 3 ;
+DEFINE PAD _4dn15tfu9 OF _MSYSMENU PROMPT "\<Movimientos" COLOR SCHEME 3 ;
 	KEY ALT+M, ""
-DEFINE PAD _4dk0o1tkw OF _MSYSMENU PROMPT "\<Reportes" COLOR SCHEME 3 ;
+DEFINE PAD _4dn15tfua OF _MSYSMENU PROMPT "\<Reportes" COLOR SCHEME 3 ;
 	KEY ALT+R, ""
-DEFINE PAD _4dk0o1tkx OF _MSYSMENU PROMPT "Ma\<ntenimiento" COLOR SCHEME 3 ;
+DEFINE PAD _4dn15tfub OF _MSYSMENU PROMPT "Ma\<ntenimiento" COLOR SCHEME 3 ;
 	KEY ALT+N, ""
-DEFINE PAD _4dk0o1tky OF _MSYSMENU PROMPT "\<Exploración" COLOR SCHEME 3 ;
+DEFINE PAD _4dn15tfuc OF _MSYSMENU PROMPT "\<Exploración" COLOR SCHEME 3 ;
 	KEY ALT+E, ""
-ON PAD _4dk0o1tku OF _MSYSMENU ACTIVATE POPUP archivo
-ON PAD _4dk0o1tkv OF _MSYSMENU ACTIVATE POPUP movimiento
-ON PAD _4dk0o1tkx OF _MSYSMENU ACTIVATE POPUP mantenimie
-ON PAD _4dk0o1tky OF _MSYSMENU ACTIVATE POPUP exploració
+ON PAD _4dn15tfu8 OF _MSYSMENU ACTIVATE POPUP archivo
+ON PAD _4dn15tfu9 OF _MSYSMENU ACTIVATE POPUP movimiento
+ON PAD _4dn15tfub OF _MSYSMENU ACTIVATE POPUP mantenimie
+ON PAD _4dn15tfuc OF _MSYSMENU ACTIVATE POPUP exploració
 
 DEFINE POPUP archivo MARGIN RELATIVE SHADOW COLOR SCHEME 4
 DEFINE BAR 1 OF archivo PROMPT "\<Almacenistas" ;
@@ -161,46 +161,46 @@ DEFINE BAR 16 OF exploració PROMPT "\<Cerrar" ;
 	KEY CTRL+F4, "CTRL+F4" ;
 	SKIP FOR _Screen.ActiveForm.Operacion<>0
 ON SELECTION BAR 1 OF exploració ;
-	DO _4dk0o1tkz ;
+	DO _4dn15tfud ;
 	IN LOCFILE("DRIVERS-COMMISIONS\MENUS\MENUMOVIMIENTO" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENUMOVIMIENTO?")
 ON SELECTION BAR 2 OF exploració ;
-	DO _4dk0o1tl0 ;
+	DO _4dn15tfue ;
 	IN LOCFILE("DRIVERS-COMMISIONS\MENUS\MENUMOVIMIENTO" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENUMOVIMIENTO?")
 ON SELECTION BAR 3 OF exploració ;
-	DO _4dk0o1tl1 ;
+	DO _4dn15tfuf ;
 	IN LOCFILE("DRIVERS-COMMISIONS\MENUS\MENUMOVIMIENTO" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENUMOVIMIENTO?")
 ON SELECTION BAR 4 OF exploració ;
-	DO _4dk0o1tl2 ;
+	DO _4dn15tfug ;
 	IN LOCFILE("DRIVERS-COMMISIONS\MENUS\MENUMOVIMIENTO" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENUMOVIMIENTO?")
 ON SELECTION BAR 6 OF exploració ;
-	DO _4dk0o1tl3 ;
+	DO _4dn15tfuh ;
 	IN LOCFILE("DRIVERS-COMMISIONS\MENUS\MENUMOVIMIENTO" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENUMOVIMIENTO?")
 ON SELECTION BAR 7 OF exploració ;
-	DO _4dk0o1tl4 ;
+	DO _4dn15tfui ;
 	IN LOCFILE("DRIVERS-COMMISIONS\MENUS\MENUMOVIMIENTO" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENUMOVIMIENTO?")
 ON SELECTION BAR 8 OF exploració ;
-	DO _4dk0o1tl5 ;
+	DO _4dn15tfuj ;
 	IN LOCFILE("DRIVERS-COMMISIONS\MENUS\MENUMOVIMIENTO" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENUMOVIMIENTO?")
 ON SELECTION BAR 10 OF exploració ;
-	DO _4dk0o1tl6 ;
+	DO _4dn15tfuk ;
 	IN LOCFILE("DRIVERS-COMMISIONS\MENUS\MENUMOVIMIENTO" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENUMOVIMIENTO?")
 ON SELECTION BAR 11 OF exploració ;
-	DO _4dk0o1tl7 ;
+	DO _4dn15tful ;
 	IN LOCFILE("DRIVERS-COMMISIONS\MENUS\MENUMOVIMIENTO" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENUMOVIMIENTO?")
 ON SELECTION BAR 13 OF exploració ;
-	DO _4dk0o1tl8 ;
+	DO _4dn15tfum ;
 	IN LOCFILE("DRIVERS-COMMISIONS\MENUS\MENUMOVIMIENTO" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENUMOVIMIENTO?")
 ON SELECTION BAR 14 OF exploració ;
-	DO _4dk0o1tl9 ;
+	DO _4dn15tfun ;
 	IN LOCFILE("DRIVERS-COMMISIONS\MENUS\MENUMOVIMIENTO" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENUMOVIMIENTO?")
 ON SELECTION BAR 16 OF exploració ;
-	DO _4dk0o1tla ;
+	DO _4dn15tfuo ;
 	IN LOCFILE("DRIVERS-COMMISIONS\MENUS\MENUMOVIMIENTO" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENUMOVIMIENTO?")
 
 
 *       *********************************************************
 *       *                                                         
-*       * _4DK0O1TKZ  ON SELECTION BAR 1 OF POPUP exploració      
+*       * _4DN15TFUD  ON SELECTION BAR 1 OF POPUP exploració      
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -211,7 +211,7 @@ ON SELECTION BAR 16 OF exploració ;
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4dk0o1tkz
+PROCEDURE _4dn15tfud
 IF _SCREEN.FORMCOUNT > 0 THEN
 	_SCREEN.ACTIVEFORM.Primero()
 ENDIF
@@ -220,7 +220,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _4DK0O1TL0  ON SELECTION BAR 2 OF POPUP exploració      
+*       * _4DN15TFUE  ON SELECTION BAR 2 OF POPUP exploració      
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -231,7 +231,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4dk0o1tl0
+PROCEDURE _4dn15tfue
 IF _SCREEN.FORMCOUNT > 0 THEN
 	_SCREEN.ACTIVEFORM.Anterior()
 ENDIF
@@ -240,7 +240,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _4DK0O1TL1  ON SELECTION BAR 3 OF POPUP exploració      
+*       * _4DN15TFUF  ON SELECTION BAR 3 OF POPUP exploració      
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -251,7 +251,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4dk0o1tl1
+PROCEDURE _4dn15tfuf
 IF _SCREEN.FORMCOUNT > 0 THEN
 	_SCREEN.ACTIVEFORM.Siguiente()
 ENDIF
@@ -260,7 +260,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _4DK0O1TL2  ON SELECTION BAR 4 OF POPUP exploració      
+*       * _4DN15TFUG  ON SELECTION BAR 4 OF POPUP exploració      
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -271,7 +271,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4dk0o1tl2
+PROCEDURE _4dn15tfug
 IF _SCREEN.FORMCOUNT > 0 THEN
 	_SCREEN.ACTIVEFORM.Ultimo()
 ENDIF
@@ -280,7 +280,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _4DK0O1TL3  ON SELECTION BAR 6 OF POPUP exploració      
+*       * _4DN15TFUH  ON SELECTION BAR 6 OF POPUP exploració      
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -291,7 +291,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4dk0o1tl3
+PROCEDURE _4dn15tfuh
 IF _SCREEN.FORMCOUNT > 0 THEN
 	_SCREEN.ACTIVEFORM.Nuevo()
 ENDIF
@@ -300,7 +300,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _4DK0O1TL4  ON SELECTION BAR 7 OF POPUP exploració      
+*       * _4DN15TFUI  ON SELECTION BAR 7 OF POPUP exploració      
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -311,7 +311,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4dk0o1tl4
+PROCEDURE _4dn15tfui
 IF _SCREEN.FORMCOUNT > 0 THEN
 	_SCREEN.ACTIVEFORM.Modificar()
 ENDIF
@@ -320,7 +320,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _4DK0O1TL5  ON SELECTION BAR 8 OF POPUP exploració      
+*       * _4DN15TFUJ  ON SELECTION BAR 8 OF POPUP exploració      
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -331,7 +331,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4dk0o1tl5
+PROCEDURE _4dn15tfuj
 IF _SCREEN.FORMCOUNT > 0 THEN
 	_SCREEN.ACTIVEFORM.Eliminar()
 ENDIF
@@ -340,7 +340,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _4DK0O1TL6  ON SELECTION BAR 10 OF POPUP exploració     
+*       * _4DN15TFUK  ON SELECTION BAR 10 OF POPUP exploració     
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -351,7 +351,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4dk0o1tl6
+PROCEDURE _4dn15tfuk
 IF _SCREEN.FORMCOUNT > 0 THEN
 	_SCREEN.ACTIVEFORM.Guardar()
 ENDIF
@@ -360,7 +360,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _4DK0O1TL7  ON SELECTION BAR 11 OF POPUP exploració     
+*       * _4DN15TFUL  ON SELECTION BAR 11 OF POPUP exploració     
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -371,7 +371,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4dk0o1tl7
+PROCEDURE _4dn15tful
 IF _SCREEN.FORMCOUNT > 0 THEN
 	_SCREEN.ACTIVEFORM.Cancelar()
 ENDIF
@@ -380,7 +380,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _4DK0O1TL8  ON SELECTION BAR 13 OF POPUP exploració     
+*       * _4DN15TFUM  ON SELECTION BAR 13 OF POPUP exploració     
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -391,7 +391,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4dk0o1tl8
+PROCEDURE _4dn15tfum
 IF _SCREEN.FORMCOUNT > 0 THEN
 	_SCREEN.ACTIVEFORM.Buscar()
 ENDIF
@@ -400,7 +400,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _4DK0O1TL9  ON SELECTION BAR 14 OF POPUP exploració     
+*       * _4DN15TFUN  ON SELECTION BAR 14 OF POPUP exploració     
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -411,7 +411,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4dk0o1tl9
+PROCEDURE _4dn15tfun
 IF _SCREEN.FORMCOUNT > 0 THEN
 	_SCREEN.ACTIVEFORM.Imprimir()
 ENDIF
@@ -420,7 +420,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _4DK0O1TLA  ON SELECTION BAR 16 OF POPUP exploració     
+*       * _4DN15TFUO  ON SELECTION BAR 16 OF POPUP exploració     
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -431,7 +431,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4dk0o1tla
+PROCEDURE _4dn15tfuo
 IF _SCREEN.FORMCOUNT > 0 THEN
 	_SCREEN.ACTIVEFORM.Cerrar()
 ENDIF
