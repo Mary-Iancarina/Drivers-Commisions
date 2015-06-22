@@ -1,1 +1,0 @@
-mysqldump -u root --password= bdtransporte --routines > C:\ComisionesChof\Backups\BdTransporte.sql
