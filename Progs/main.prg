@@ -97,11 +97,7 @@ ELSE
 	USE
 ENDIF
 oApp = CREATEOBJECT("Principal")
-<<<<<<< HEAD
-_SCREEN.CAPTION ="Sistema de Transporte"  + "-" + pcServidor + "-" + pcData
-=======
 _SCREEN.CAPTION ="Sistema de Transporte" + "-" + pcServidor +"-"+ pcData
->>>>>>> development
 lnConexion=CrearConexion()
 IF lnConexion> 0 THEN
 	Desconectar(lnConexion)
